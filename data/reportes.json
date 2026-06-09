@@ -1,0 +1,1381 @@
+[
+  {
+    "tipo": "incidente",
+    "titulo": "Colisión menor entre vehículos en pista",
+    "contenido_texto": "El 12 de enero de 2024, un vehículo de remolque colisionó levemente con una escalerilla en la pista 18L del aeropuerto. No hubo heridos. Se activó el protocolo de inspección de pista y se reportó al área de mantenimiento para revisión del vehículo involucrado.",
+    "fecha": "2024-01-12",
+    "idioma": "es",
+    "prioridad": "alta",
+    "tags": [
+      "pista",
+      "vehículos",
+      "seguridad"
+    ]
+  },
+  {
+    "tipo": "climatico",
+    "titulo": "Tormenta eléctrica suspende operaciones",
+    "contenido_texto": "La tormenta eléctrica registrada el 15 de enero de 2024 obligó a suspender todas las operaciones de despegue y aterrizaje durante 3 horas. Se activaron protocolos de seguridad meteorológica. Los pasajeros fueron reubicados en salas de espera y los vuelos reprogramados.",
+    "fecha": "2024-01-15",
+    "idioma": "es",
+    "prioridad": "alta",
+    "tags": [
+      "clima",
+      "suspensión",
+      "meteorología"
+    ]
+  },
+  {
+    "tipo": "mantenimiento",
+    "titulo": "Revisión preventiva de motores en Boeing 737",
+    "contenido_texto": "Mantenimiento programado para la aeronave HK-4321 (Boeing 737-800) el 18 de enero. Se inspeccionaron motores CFM56, sistema hidráulico y tren de aterrizaje. Todas las verificaciones resultaron exitosas. La aeronave fue liberada para operaciones normales al día siguiente.",
+    "fecha": "2024-01-18",
+    "idioma": "es",
+    "prioridad": "media",
+    "tags": [
+      "mantenimiento",
+      "Boeing 737",
+      "motores"
+    ]
+  },
+  {
+    "tipo": "operativo",
+    "titulo": "Apertura de nueva ruta Bogotá-Miami",
+    "contenido_texto": "Avianca inauguró el 20 de enero de 2024 su nueva ruta directa Bogotá-Miami con frecuencia diaria. El vuelo AV045 opera en un Airbus A330-200. La ruta tiene una duración aproximada de 4 horas y 20 minutos. Se esperan 180 pasajeros por vuelo en promedio.",
+    "fecha": "2024-01-20",
+    "idioma": "es",
+    "prioridad": "baja",
+    "tags": [
+      "ruta nueva",
+      "Avianca",
+      "Miami"
+    ]
+  },
+  {
+    "tipo": "seguridad",
+    "titulo": "Detección de artículo sospechoso en sala de embarque",
+    "contenido_texto": "El 22 de enero de 2024 la unidad canina detectó un artículo sospechoso en la sala de embarque B7. Se evacuó el área preventivamente. Tras inspección exhaustiva, el artículo resultó ser material electrónico olvidado por un pasajero. Operaciones se reanudaron en 45 minutos.",
+    "fecha": "2024-01-22",
+    "idioma": "es",
+    "prioridad": "alta",
+    "tags": [
+      "seguridad",
+      "unidad canina",
+      "evacuación"
+    ]
+  },
+  {
+    "tipo": "incidente",
+    "titulo": "Fallo en sistema de equipaje carrusel 3",
+    "contenido_texto": "El carrusel número 3 de la terminal nacional presentó fallo mecánico el 25 de enero, afectando la entrega de equipaje de 4 vuelos. Se activó el protocolo alterno con uso de carruseles 4 y 5. El fallo fue reparado en 2 horas. Se emitieron disculpas a los pasajeros afectados.",
+    "fecha": "2024-01-25",
+    "idioma": "es",
+    "prioridad": "media",
+    "tags": [
+      "equipaje",
+      "fallo mecánico",
+      "carrusel"
+    ]
+  },
+  {
+    "tipo": "operativo",
+    "titulo": "Implementación sistema biométrico de embarque",
+    "contenido_texto": "Desde el 1 de febrero de 2024 el aeropuerto implementó reconocimiento facial para embarque en puertas internacionales A1-A10. El sistema procesa a cada pasajero en menos de 3 segundos. Se registró una reducción del 35% en tiempos de boarding.",
+    "fecha": "2024-02-01",
+    "idioma": "es",
+    "prioridad": "baja",
+    "tags": [
+      "biometría",
+      "tecnología",
+      "boarding"
+    ]
+  },
+  {
+    "tipo": "climatico",
+    "titulo": "Niebla densa reduce visibilidad en pista",
+    "contenido_texto": "La madrugada del 3 de febrero de 2024 se registró niebla densa con visibilidad menor a 200 metros en las pistas 13R y 13L. Se aplicó el procedimiento CAT III. Ocho vuelos fueron desviados a El Dorado y cuatro sufrieron retrasos superiores a dos horas.",
+    "fecha": "2024-02-03",
+    "idioma": "es",
+    "prioridad": "alta",
+    "tags": [
+      "niebla",
+      "visibilidad",
+      "CAT III"
+    ]
+  },
+  {
+    "tipo": "mantenimiento",
+    "titulo": "Reparación urgente de balizas en pista 31",
+    "contenido_texto": "Se reportó el fallo de tres balizas de aproximación en la pista 31 el 7 de febrero. El equipo de mantenimiento eléctrico realizó reparación de emergencia en 90 minutos. La pista estuvo cerrada temporalmente y se redirigió el tráfico a la pista alterna.",
+    "fecha": "2024-02-07",
+    "idioma": "es",
+    "prioridad": "alta",
+    "tags": [
+      "balizas",
+      "pista",
+      "reparación"
+    ]
+  },
+  {
+    "tipo": "incidente",
+    "titulo": "Pasajero con comportamiento disruptivo en vuelo",
+    "contenido_texto": "Durante el vuelo LA4521 del 10 de febrero un pasajero presentó comportamiento agresivo hacia la tripulación de cabina. El piloto notificó a tierra y las autoridades aeroportuarias estuvieron presentes al aterrizaje. El pasajero fue retenido por seguridad aeroportuaria.",
+    "fecha": "2024-02-10",
+    "idioma": "es",
+    "prioridad": "alta",
+    "tags": [
+      "seguridad",
+      "pasajero disruptivo",
+      "tripulación"
+    ]
+  },
+  {
+    "tipo": "operativo",
+    "titulo": "Ampliación de sala VIP internacional",
+    "contenido_texto": "La sala VIP Quetzal del área internacional fue ampliada con 80 nuevos asientos, estaciones de trabajo y ducha. La renovación tuvo un costo de 2.3 millones de dólares. La capacidad total pasó de 120 a 200 personas simultáneamente.",
+    "fecha": "2024-02-14",
+    "idioma": "es",
+    "prioridad": "baja",
+    "tags": [
+      "infraestructura",
+      "VIP",
+      "ampliación"
+    ]
+  },
+  {
+    "tipo": "seguridad",
+    "titulo": "Simulacro de evacuación de emergencia",
+    "contenido_texto": "El 18 de febrero se realizó simulacro de evacuación total del terminal principal. Participaron 450 empleados y se simuló un incendio en el área de facturación. El tiempo de evacuación total fue de 8 minutos, por debajo del umbral de 12 minutos establecido.",
+    "fecha": "2024-02-18",
+    "idioma": "es",
+    "prioridad": "media",
+    "tags": [
+      "simulacro",
+      "evacuación",
+      "emergencia"
+    ]
+  },
+  {
+    "tipo": "mantenimiento",
+    "titulo": "Actualización de sistemas ILS pista 13L",
+    "contenido_texto": "El 21 de febrero se completó la actualización del sistema ILS (Instrument Landing System) de la pista 13L. El nuevo sistema permite aproximaciones de precisión CAT IIIb con visibilidad de hasta 50 metros. La certificación fue otorgada por la Aeronáutica Civil.",
+    "fecha": "2024-02-21",
+    "idioma": "es",
+    "prioridad": "media",
+    "tags": [
+      "ILS",
+      "navegación",
+      "certificación"
+    ]
+  },
+  {
+    "tipo": "incidente",
+    "titulo": "Derrame de combustible en plataforma norte",
+    "contenido_texto": "El 25 de febrero una manguera de abastecimiento presentó fuga durante la carga de combustible en la aeronave HK-5089. El derrame fue de aproximadamente 200 litros. Se activó protocolo de contención ambiental y el área fue sellada por 4 horas.",
+    "fecha": "2024-02-25",
+    "idioma": "es",
+    "prioridad": "alta",
+    "tags": [
+      "combustible",
+      "derrame",
+      "plataforma"
+    ]
+  },
+  {
+    "tipo": "climatico",
+    "titulo": "Vientos cruzados suspenden operaciones nocturnas",
+    "contenido_texto": "Vientos cruzados de 45 nudos registrados la noche del 28 de febrero impidieron operaciones en la pista principal. Solo la pista 04 estuvo operativa. Quince vuelos nocturnos fueron cancelados y doce reprogramados para el día siguiente.",
+    "fecha": "2024-02-28",
+    "idioma": "es",
+    "prioridad": "alta",
+    "tags": [
+      "viento",
+      "cancelaciones",
+      "operaciones"
+    ]
+  },
+  {
+    "tipo": "operativo",
+    "titulo": "Inauguración terminal de carga ampliada",
+    "contenido_texto": "El 1 de marzo de 2024 entró en operación la nueva terminal de carga con capacidad para 15,000 toneladas mensuales, el doble de la anterior. Cuenta con cámaras de temperatura controlada, área de animales vivos y zona de materiales peligrosos certificada.",
+    "fecha": "2024-03-01",
+    "idioma": "es",
+    "prioridad": "baja",
+    "tags": [
+      "carga",
+      "infraestructura",
+      "ampliación"
+    ]
+  },
+  {
+    "tipo": "seguridad",
+    "titulo": "Incautación de divisas no declaradas",
+    "contenido_texto": "La DIAN junto con seguridad aeroportuaria incautó 380,000 dólares no declarados en un vuelo con destino a Panamá el 5 de marzo. Los billetes estaban distribuidos en doble fondo de maletas. Dos personas fueron detenidas para investigación.",
+    "fecha": "2024-03-05",
+    "idioma": "es",
+    "prioridad": "alta",
+    "tags": [
+      "DIAN",
+      "divisas",
+      "decomiso"
+    ]
+  },
+  {
+    "tipo": "mantenimiento",
+    "titulo": "Repintado de señalización de pistas",
+    "contenido_texto": "Inicio del programa de repintado de señalización horizontal en todas las pistas el 8 de marzo. El contrato valorado en 850 millones de pesos implica renovar 47 kilómetros de líneas. Se trabaja en horario nocturno para no interrumpir operaciones.",
+    "fecha": "2024-03-08",
+    "idioma": "es",
+    "prioridad": "baja",
+    "tags": [
+      "señalización",
+      "pistas",
+      "mantenimiento"
+    ]
+  },
+  {
+    "tipo": "incidente",
+    "titulo": "Ave en motor durante despegue de A320",
+    "contenido_texto": "El vuelo AV234 reportó impacto de ave en motor número 1 durante el despegue del 12 de marzo. El comandante declaró emergencia y regresó a la pista. El motor fue inspeccionado y se encontraron daños menores en las paletas del fan. El vuelo se reprogramó.",
+    "fecha": "2024-03-12",
+    "idioma": "es",
+    "prioridad": "alta",
+    "tags": [
+      "bird strike",
+      "emergencia",
+      "A320"
+    ]
+  },
+  {
+    "tipo": "operativo",
+    "titulo": "Nuevo sistema de información de vuelos en pantallas",
+    "contenido_texto": "El 15 de marzo se activó el nuevo sistema FIDS (Flight Information Display System) con 320 pantallas 4K distribuidas en todo el aeropuerto. El sistema se actualiza en tiempo real y ofrece información en español, inglés y portugués.",
+    "fecha": "2024-03-15",
+    "idioma": "es",
+    "prioridad": "baja",
+    "tags": [
+      "tecnología",
+      "FIDS",
+      "pasajeros"
+    ]
+  },
+  {
+    "tipo": "climatico",
+    "titulo": "Granizo daña aeronaves en plataforma",
+    "contenido_texto": "El fuerte granizo del 18 de marzo causó abolladuras en 6 aeronaves estacionadas en plataforma abierta. Las aeronaves afectadas pertenecen a Latam, Avianca y Wingo. Los daños superficiales requieren reparación antes de reanudar vuelos. Pérdidas estimadas en 400,000 USD.",
+    "fecha": "2024-03-18",
+    "idioma": "es",
+    "prioridad": "alta",
+    "tags": [
+      "granizo",
+      "daños",
+      "aeronaves"
+    ]
+  },
+  {
+    "tipo": "seguridad",
+    "titulo": "Prueba de nuevos escáneres de última generación",
+    "contenido_texto": "El 20 de marzo comenzó la prueba piloto de escáneres de tomografía computarizada CT en las líneas de seguridad internacionales. Los equipos permiten ver el contenido del equipaje en 3D sin necesidad de sacar computadores o líquidos.",
+    "fecha": "2024-03-20",
+    "idioma": "es",
+    "prioridad": "media",
+    "tags": [
+      "escáneres",
+      "seguridad",
+      "tecnología"
+    ]
+  },
+  {
+    "tipo": "mantenimiento",
+    "titulo": "Reemplazo de puentes de embarque terminales B y C",
+    "contenido_texto": "Inicio del contrato de reemplazo de 14 puentes de embarque en los terminales B y C el 25 de marzo. Los nuevos puentes Jetway son compatibles con aeronaves de doble pasillo. El proyecto tendrá duración de 8 meses con inversión de 12 millones de dólares.",
+    "fecha": "2024-03-25",
+    "idioma": "es",
+    "prioridad": "media",
+    "tags": [
+      "puentes",
+      "Jetway",
+      "terminales"
+    ]
+  },
+  {
+    "tipo": "incidente",
+    "titulo": "Fallo sistema de iluminación pista nocturna",
+    "contenido_texto": "El 28 de marzo a las 22:15 se registró fallo total en la iluminación de la pista 31R. Cuatro aeronaves en aproximación fueron redirigidas y tres en espera de decolear fueron retenidas. El sistema fue restaurado en 35 minutos por el equipo eléctrico.",
+    "fecha": "2024-03-28",
+    "idioma": "es",
+    "prioridad": "alta",
+    "tags": [
+      "iluminación",
+      "pista nocturna",
+      "fallo eléctrico"
+    ]
+  },
+  {
+    "tipo": "operativo",
+    "titulo": "Récord de pasajeros en Semana Santa",
+    "contenido_texto": "Durante la Semana Santa de 2024 el aeropuerto movilizó 487,000 pasajeros en 7 días, un récord histórico. Se desplegaron 350 agentes adicionales de seguridad y 120 empleados de atención al cliente. El índice de satisfacción fue de 4.2 sobre 5.",
+    "fecha": "2024-03-31",
+    "idioma": "es",
+    "prioridad": "baja",
+    "tags": [
+      "récord",
+      "Semana Santa",
+      "pasajeros"
+    ]
+  },
+  {
+    "tipo": "operativo",
+    "titulo": "Inicio de ruta Medellín-Nueva York",
+    "contenido_texto": "El 2 de abril de 2024 Avianca lanzó vuelo directo Medellín-Nueva York JFK. El vuelo AV087 opera tres veces por semana en Airbus A330-300. La duración es de 6 horas. Se espera una demanda mensual de 15,000 pasajeros en la ruta.",
+    "fecha": "2024-04-02",
+    "idioma": "es",
+    "prioridad": "baja",
+    "tags": [
+      "ruta",
+      "Nueva York",
+      "Avianca"
+    ]
+  },
+  {
+    "tipo": "seguridad",
+    "titulo": "Refuerzo de seguridad perimetral con drones",
+    "contenido_texto": "El 5 de abril se implementó patrullaje perimetral con 8 drones equipados con cámaras térmicas nocturnas. El sistema opera entre las 20:00 y las 06:00 cubriendo los 14 kilómetros del perímetro aeroportuario. Reduce la necesidad de guardias físicos nocturnos en un 60%.",
+    "fecha": "2024-04-05",
+    "idioma": "es",
+    "prioridad": "media",
+    "tags": [
+      "drones",
+      "seguridad perimetral",
+      "tecnología"
+    ]
+  },
+  {
+    "tipo": "mantenimiento",
+    "titulo": "Certificación OACI para operaciones CAT III",
+    "contenido_texto": "El 10 de abril la Organización de Aviación Civil Internacional otorgó certificación para operaciones CAT IIIa. Esto permite aterrizajes con visibilidad de hasta 75 metros. El proceso de certificación tomó 18 meses y requirió inversión de 4.5 millones de dólares.",
+    "fecha": "2024-04-10",
+    "idioma": "es",
+    "prioridad": "media",
+    "tags": [
+      "OACI",
+      "CAT III",
+      "certificación"
+    ]
+  },
+  {
+    "tipo": "climatico",
+    "titulo": "Activación protocolo de nieve por primera vez",
+    "contenido_texto": "Fenómeno excepcional de granizo intenso el 15 de abril obligó a activar por primera vez el protocolo de nieve. Se desplegaron 3 vehículos quitanieves importados de Canadá que nunca se habían usado. La pista fue habilitada en 2 horas.",
+    "fecha": "2024-04-15",
+    "idioma": "es",
+    "prioridad": "media",
+    "tags": [
+      "granizo",
+      "protocolo nieve",
+      "excepcional"
+    ]
+  },
+  {
+    "tipo": "incidente",
+    "titulo": "Tren de aterrizaje no retráctil en vuelo regional",
+    "contenido_texto": "La aeronave ATR-72 de la aerolínea EasyFly reportó el 18 de abril que el tren de aterrizaje no se retraía completamente tras el despegue. La aeronave voló durante 40 minutos consumiendo combustible antes de intentar el aterrizaje. Este fue exitoso sin incidentes.",
+    "fecha": "2024-04-18",
+    "idioma": "es",
+    "prioridad": "alta",
+    "tags": [
+      "tren aterrizaje",
+      "incidente técnico",
+      "ATR-72"
+    ]
+  },
+  {
+    "tipo": "operativo",
+    "titulo": "Lanzamiento app móvil del aeropuerto",
+    "contenido_texto": "El 22 de abril se lanzó la aplicación móvil oficial del aeropuerto para iOS y Android. La app incluye información de vuelos en tiempo real, mapa interactivo del terminal, reserva de parqueadero y estado de seguridad. Superó 50,000 descargas en la primera semana.",
+    "fecha": "2024-04-22",
+    "idioma": "es",
+    "prioridad": "baja",
+    "tags": [
+      "app",
+      "tecnología",
+      "pasajeros"
+    ]
+  },
+  {
+    "tipo": "seguridad",
+    "titulo": "Detección de pasaporte falso en control migratorio",
+    "contenido_texto": "El 25 de abril el sistema biométrico detectó un pasaporte falsificado en el control migratorio internacional. El documento pertenecía a un ciudadano de un tercer país. Las autoridades de migración y policía de fronteras procedieron a la detención del individuo.",
+    "fecha": "2024-04-25",
+    "idioma": "es",
+    "prioridad": "alta",
+    "tags": [
+      "migración",
+      "falsificación",
+      "biometría"
+    ]
+  },
+  {
+    "tipo": "mantenimiento",
+    "titulo": "Cambio de pavimento en taxiways norte",
+    "contenido_texto": "Inicio de obras de repavimentación de los taxiways Alpha-Norte y Bravo-Norte el 28 de abril. El contrato incluye 12,000 metros cuadrados de concreto asfáltico de alta resistencia. Los taxiways estarán cerrados en horario nocturno durante 60 días.",
+    "fecha": "2024-04-28",
+    "idioma": "es",
+    "prioridad": "media",
+    "tags": [
+      "taxiway",
+      "pavimento",
+      "obras"
+    ]
+  },
+  {
+    "tipo": "incidente",
+    "titulo": "Evacuación de aeronave por humo en cabina",
+    "contenido_texto": "El 2 de mayo los pasajeros del vuelo W32450 evacuaron por toboganes tras detectarse humo en la cabina momentos antes del despegue. El origen fue un cortocircuito en el sistema de entretenimiento a bordo. Dieciséis pasajeros sufrieron contusiones menores.",
+    "fecha": "2024-05-02",
+    "idioma": "es",
+    "prioridad": "alta",
+    "tags": [
+      "evacuación",
+      "humo",
+      "cabina"
+    ]
+  },
+  {
+    "tipo": "operativo",
+    "titulo": "Inauguración zona de juegos infantiles terminal",
+    "contenido_texto": "El 6 de mayo abrió la nueva zona de juegos infantiles en el terminal internacional, área 2.000 metros cuadrados con toboganes, trepaderos y área de videojuegos. El espacio es gratuito y cuenta con personal de supervisión. Busca reducir el estrés de familias en espera.",
+    "fecha": "2024-05-06",
+    "idioma": "es",
+    "prioridad": "baja",
+    "tags": [
+      "familias",
+      "infraestructura",
+      "niños"
+    ]
+  },
+  {
+    "tipo": "climatico",
+    "titulo": "Restricción de vuelos por ceniza volcánica",
+    "contenido_texto": "El 10 de mayo el servicio meteorológico reportó presencia de ceniza volcánica en niveles de vuelo FL200-FL350 procedente del volcán Nevado del Ruiz. Se restringieron 23 vuelos y se recomiró ruta alternativa hacia el sur. La restricción duró 6 horas.",
+    "fecha": "2024-05-10",
+    "idioma": "es",
+    "prioridad": "alta",
+    "tags": [
+      "volcán",
+      "ceniza",
+      "restricción vuelos"
+    ]
+  },
+  {
+    "tipo": "seguridad",
+    "titulo": "Ejercicio antiterrorista conjunto FAC-Policía",
+    "contenido_texto": "El 14 de mayo se realizó ejercicio antiterrorista conjunto entre la Fuerza Aérea Colombiana y la Policía Nacional. El simulacro incluyó toma de rehenes, desactivación de artefacto y neutralización de amenaza. Participaron 200 efectivos durante 4 horas.",
+    "fecha": "2024-05-14",
+    "idioma": "es",
+    "prioridad": "media",
+    "tags": [
+      "antiterrorismo",
+      "simulacro",
+      "FAC"
+    ]
+  },
+  {
+    "tipo": "mantenimiento",
+    "titulo": "Instalación de paneles solares en techo terminal",
+    "contenido_texto": "El 18 de mayo comenzó la instalación de 2,400 paneles solares en el techo del terminal principal como parte del plan de sostenibilidad ambiental. La instalación generará 840 kW de potencia, cubriendo el 30% del consumo del terminal. Inversión de 3.2 millones de dólares.",
+    "fecha": "2024-05-18",
+    "idioma": "es",
+    "prioridad": "baja",
+    "tags": [
+      "paneles solares",
+      "sostenibilidad",
+      "energía verde"
+    ]
+  },
+  {
+    "tipo": "incidente",
+    "titulo": "Colisión entre tractor y aeronave en plataforma",
+    "contenido_texto": "El 22 de mayo un tractor de rampa golpeó el estabilizador horizontal de un Airbus A319 durante maniobra de pushback en plataforma sur. El operador del vehículo no siguió el protocolo de distancia mínima. La aeronave requirió inspección técnica de 8 horas.",
+    "fecha": "2024-05-22",
+    "idioma": "es",
+    "prioridad": "alta",
+    "tags": [
+      "rampa",
+      "colisión",
+      "pushback"
+    ]
+  },
+  {
+    "tipo": "operativo",
+    "titulo": "Nuevo contrato de concesión de restaurantes",
+    "contenido_texto": "El 26 de mayo se firmó contrato de concesión con Grupo Nutresa para operar 12 restaurantes y 8 cafeterías en el terminal durante 10 años. La inversión inicial del concesionario es de 8 millones de dólares. Se crearán 350 empleos directos.",
+    "fecha": "2024-05-26",
+    "idioma": "es",
+    "prioridad": "baja",
+    "tags": [
+      "concesión",
+      "gastronomía",
+      "empleos"
+    ]
+  },
+  {
+    "tipo": "climatico",
+    "titulo": "Alerta roja por lluvias torrenciales",
+    "contenido_texto": "El 30 de mayo se activó alerta roja por lluvias torrenciales con acumulados de 180mm en 3 horas. El área de carga se inundó parcialmente. Los sistemas de drenaje fueron insuficientes. Se suspendieron temporalmente las operaciones de carga y 8 vuelos fueron desviados.",
+    "fecha": "2024-05-30",
+    "idioma": "es",
+    "prioridad": "alta",
+    "tags": [
+      "lluvia",
+      "inundación",
+      "alerta roja"
+    ]
+  },
+  {
+    "tipo": "seguridad",
+    "titulo": "Actualización del plan de contingencia AVSEC",
+    "contenido_texto": "El 3 de junio se aprobó la actualización del Plan de Contingencia de Seguridad de la Aviación Civil (AVSEC). El nuevo documento incorpora protocolos para amenazas de drones no autorizados y ataques cibernéticos. El plan fue revisado por la OACI.",
+    "fecha": "2024-06-03",
+    "idioma": "es",
+    "prioridad": "media",
+    "tags": [
+      "AVSEC",
+      "plan contingencia",
+      "drones"
+    ]
+  },
+  {
+    "tipo": "mantenimiento",
+    "titulo": "Calibración de radioayudas VOR/DME",
+    "contenido_texto": "El 7 de junio avión calibrador de AEROCIVIL realizó vuelos de verificación del VOR/DME. Los equipos se encontraban con desviaciones dentro de parámetros aceptables. Se realizaron ajustes menores al VOR-Bogotá y se emitió NOTAM de calibración.",
+    "fecha": "2024-06-07",
+    "idioma": "es",
+    "prioridad": "media",
+    "tags": [
+      "VOR",
+      "DME",
+      "calibración"
+    ]
+  },
+  {
+    "tipo": "incidente",
+    "titulo": "Pasajero no localizado antes del despegue",
+    "contenido_texto": "El vuelo LA8832 sufrió retraso de 2 horas el 11 de junio por pasajero que no se presentó en la puerta de embarque. Su equipaje facturado tuvo que ser localizado y retirado de la bodega por razones de seguridad. El pasajero fue localizado dormido en sala de espera.",
+    "fecha": "2024-06-11",
+    "idioma": "es",
+    "prioridad": "media",
+    "tags": [
+      "equipaje",
+      "seguridad",
+      "embarque"
+    ]
+  },
+  {
+    "tipo": "operativo",
+    "titulo": "Certificación aeropuerto como Hub regional",
+    "contenido_texto": "El 15 de junio la IATA otorgó al aeropuerto la certificación como Hub Regional de Latinoamérica. El reconocimiento implica conectividad con más de 80 destinos y capacidad de manejo de conexiones en menos de 60 minutos. Posiciona al aeropuerto entre los 10 mejores de la región.",
+    "fecha": "2024-06-15",
+    "idioma": "es",
+    "prioridad": "baja",
+    "tags": [
+      "Hub",
+      "IATA",
+      "certificación"
+    ]
+  },
+  {
+    "tipo": "climatico",
+    "titulo": "Niebla matutina genera 18 aterrizajes frustrados",
+    "contenido_texto": "La densa niebla matutina del 19 de junio causó 18 aterrizajes frustrados donde las aeronaves no pudieron completar el aterrizaje y debieron realizar maniobra de espera o desvío. Tres aeronaves aterrizaron en Palmira. La situación se normalizó al mediodía.",
+    "fecha": "2024-06-19",
+    "idioma": "es",
+    "prioridad": "alta",
+    "tags": [
+      "niebla",
+      "aterrizajes frustrados",
+      "desvíos"
+    ]
+  },
+  {
+    "tipo": "seguridad",
+    "titulo": "Incidente con pasajero armado en migración",
+    "contenido_texto": "El 22 de junio un pasajero procedente de Venezuela intentó ingresar con un arma de fuego no declarada. El escáner de rayos X detectó el arma en el equipaje de mano. El individuo fue detenido por la Policía Nacional. Se abrió proceso judicial en su contra.",
+    "fecha": "2024-06-22",
+    "idioma": "es",
+    "prioridad": "alta",
+    "tags": [
+      "arma",
+      "seguridad",
+      "detención"
+    ]
+  },
+  {
+    "tipo": "mantenimiento",
+    "titulo": "Reemplazo de sistema HVAC terminal internacional",
+    "contenido_texto": "El 26 de junio se completó el reemplazo del sistema de climatización HVAC del terminal internacional. Los nuevos equipos Daikin consumen 40% menos energía y tienen mayor capacidad de purificación de aire con filtros HEPA. El proyecto tomó 4 meses.",
+    "fecha": "2024-06-26",
+    "idioma": "es",
+    "prioridad": "media",
+    "tags": [
+      "HVAC",
+      "climatización",
+      "sostenibilidad"
+    ]
+  },
+  {
+    "tipo": "incidente",
+    "titulo": "Retorno de vuelo por pasajero con malestar cardiaco",
+    "contenido_texto": "El vuelo AV567 con destino a Madrid retornó el 30 de junio tras 1 hora de vuelo por pasajero con síntomas de infarto al miocardio. El médico a bordo prestó primeros auxilios. El avión tuvo prioridad de aterrizaje. El pasajero fue estabilizado y llevado a clínica.",
+    "fecha": "2024-06-30",
+    "idioma": "es",
+    "prioridad": "alta",
+    "tags": [
+      "emergencia médica",
+      "retorno",
+      "infarto"
+    ]
+  },
+  {
+    "tipo": "operativo",
+    "titulo": "Apertura de nueva ruta hacia Cancún",
+    "contenido_texto": "Wingo inauguró el 5 de julio la ruta directa hacia Cancún con tarifa inicial de 250,000 pesos. El vuelo opera viernes y domingo en Boeing 737-800. Con una duración de 3 horas 10 minutos es la ruta más corta hacia México desde Colombia.",
+    "fecha": "2024-07-05",
+    "idioma": "es",
+    "prioridad": "baja",
+    "tags": [
+      "Wingo",
+      "Cancún",
+      "nueva ruta"
+    ]
+  },
+  {
+    "tipo": "seguridad",
+    "titulo": "Actualización protocolo de amenaza de bomba",
+    "contenido_texto": "El 8 de julio se realizó ejercicio de simulación de amenaza de bomba con coordinación de todas las agencias de seguridad. Se actualizó el protocolo de comunicación entre torre de control, policía, bomberos y aerolíneas. Tiempo de respuesta mejoró en 40%.",
+    "fecha": "2024-07-08",
+    "idioma": "es",
+    "prioridad": "media",
+    "tags": [
+      "protocolo",
+      "bomba",
+      "simulación"
+    ]
+  },
+  {
+    "tipo": "mantenimiento",
+    "titulo": "Inspección de estructuras puente sobre pista",
+    "contenido_texto": "El 12 de julio ingenieros de INVIAS realizaron inspección de la estructura del puente vehicular sobre la pista auxiliar. Se detectaron grietas superficiales en dos pilas. El puente seguirá operando con restricción de peso de 40 toneladas hasta su reparación.",
+    "fecha": "2024-07-12",
+    "idioma": "es",
+    "prioridad": "media",
+    "tags": [
+      "puente",
+      "estructura",
+      "inspección"
+    ]
+  },
+  {
+    "tipo": "climatico",
+    "titulo": "Tornado de polvo afecta operaciones en rampa",
+    "contenido_texto": "El 15 de julio un remolino de polvo o dust devil de gran tamaño cruzó la zona de rampa durante operaciones vespertinas. Tres vehículos de rampa fueron afectados y documentos de vuelo salieron volando. No hubo heridos. Las operaciones continuaron sin interrupciones.",
+    "fecha": "2024-07-15",
+    "idioma": "es",
+    "prioridad": "media",
+    "tags": [
+      "dust devil",
+      "rampa",
+      "viento"
+    ]
+  },
+  {
+    "tipo": "incidente",
+    "titulo": "Fuga de gas refrigerante en área de alimentos",
+    "contenido_texto": "El 19 de julio se detectó fuga de gas R-410A en el área de preparación de alimentos del terminal. El área fue evacuada y el sistema de extracción activado. El gas es inodoro pero puede causar asfixia en espacios cerrados. La reparación tomó 6 horas.",
+    "fecha": "2024-07-19",
+    "idioma": "es",
+    "prioridad": "alta",
+    "tags": [
+      "gas refrigerante",
+      "evacuación",
+      "alimentos"
+    ]
+  },
+  {
+    "tipo": "operativo",
+    "titulo": "Expansión de zona de parqueadero a largo plazo",
+    "contenido_texto": "El 22 de julio entró en operación la expansión del parqueadero de largo plazo con 800 nuevos cupos. La nueva zona incluye estaciones de carga para vehículos eléctricos, cubierta solar y sistema de reserva por app. La tarifa para EV es 20% inferior.",
+    "fecha": "2024-07-22",
+    "idioma": "es",
+    "prioridad": "baja",
+    "tags": [
+      "parqueadero",
+      "eléctricos",
+      "expansión"
+    ]
+  },
+  {
+    "tipo": "seguridad",
+    "titulo": "Decomiso de flora y fauna protegida",
+    "contenido_texto": "El 26 de julio el ICA y la Policía Ambiental decomisaron 340 especímenes de fauna silvestre y 15 plantas protegidas en un vuelo internacional. Los animales incluían tortugas, iguanas y aves exóticas. Fueron trasladados al Centro de Atención de Fauna Silvestre.",
+    "fecha": "2024-07-26",
+    "idioma": "es",
+    "prioridad": "media",
+    "tags": [
+      "fauna",
+      "decomiso",
+      "ICA"
+    ]
+  },
+  {
+    "tipo": "mantenimiento",
+    "titulo": "Renovación sistema de energía ininterrumpida UPS",
+    "contenido_texto": "El 30 de julio se completó la instalación del nuevo sistema UPS para torre de control y sistemas críticos. El sistema garantiza 4 horas de operación autónoma ante fallo de red eléctrica. La capacidad pasó de 500 kVA a 1,200 kVA.",
+    "fecha": "2024-07-30",
+    "idioma": "es",
+    "prioridad": "alta",
+    "tags": [
+      "UPS",
+      "torre de control",
+      "energía"
+    ]
+  },
+  {
+    "tipo": "incidente",
+    "titulo": "Aeronave sale de pista por hidropanación",
+    "contenido_texto": "El 3 de agosto la aeronave HK-4987 salió de la pista por hidropanación durante el aterrizaje bajo lluvia intensa. La aeronave quedó en el área de seguridad de pista sin volcarse. Los 142 pasajeros evacuaron por escalerillas. Cuatro personas con lesiones leves.",
+    "fecha": "2024-08-03",
+    "idioma": "es",
+    "prioridad": "alta",
+    "tags": [
+      "hidropanación",
+      "incidente",
+      "evacuación"
+    ]
+  },
+  {
+    "tipo": "climatico",
+    "titulo": "Rayo impacta antena de comunicaciones",
+    "contenido_texto": "El 7 de agosto un rayo impactó la antena principal VHF de la torre de control durante una tormenta eléctrica. Los sistemas de respaldo entraron automáticamente. Las comunicaciones se vieron afectadas por 12 minutos. La antena fue reemplazada al día siguiente.",
+    "fecha": "2024-08-07",
+    "idioma": "es",
+    "prioridad": "alta",
+    "tags": [
+      "rayo",
+      "antena",
+      "comunicaciones"
+    ]
+  },
+  {
+    "tipo": "operativo",
+    "titulo": "Programa de fidelización del aeropuerto",
+    "contenido_texto": "El 11 de agosto se lanzó el programa Élite Pass que acumula puntos por tiempo en el aeropuerto, compras en tiendas y visitas a la sala VIP. Los puntos se canjean por upgrades, acceso a salas y parqueadero gratuito. Meta: 200,000 usuarios en el primer año.",
+    "fecha": "2024-08-11",
+    "idioma": "es",
+    "prioridad": "baja",
+    "tags": [
+      "fidelización",
+      "programa",
+      "pasajeros"
+    ]
+  },
+  {
+    "tipo": "seguridad",
+    "titulo": "Intrusión de dron no autorizado sobre pistas",
+    "contenido_texto": "El 15 de agosto un dron no identificado sobrevoló las pistas en horario nocturno. Se activó el protocolo anti-dron y se suspendieron operaciones por 25 minutos. El sistema jammer logró aterrizar el dron de forma forzada. El operador no fue identificado.",
+    "fecha": "2024-08-15",
+    "idioma": "es",
+    "prioridad": "alta",
+    "tags": [
+      "dron",
+      "intrusión",
+      "pistas"
+    ]
+  },
+  {
+    "tipo": "mantenimiento",
+    "titulo": "Actualización de software ATC a versión 7.2",
+    "contenido_texto": "El 19 de agosto se realizó actualización del software del sistema de control de tránsito aéreo a la versión 7.2. La actualización incluye mejoras en el algoritmo de separación de aeronaves y nueva interfaz para el manejo de conflictos de ruta.",
+    "fecha": "2024-08-19",
+    "idioma": "es",
+    "prioridad": "media",
+    "tags": [
+      "ATC",
+      "software",
+      "actualización"
+    ]
+  },
+  {
+    "tipo": "incidente",
+    "titulo": "Pasajero intenta abrir puerta durante vuelo",
+    "contenido_texto": "Un pasajero con aparente crisis de pánico intentó abrir la puerta de emergencia durante el vuelo LA9234 el 23 de agosto. Otros pasajeros y la tripulación lo redujeron. La aeronave aterrizó normalmente. El pasajero fue evaluado psiquiátricamente.",
+    "fecha": "2024-08-23",
+    "idioma": "es",
+    "prioridad": "alta",
+    "tags": [
+      "pasajero",
+      "emergencia",
+      "puerta"
+    ]
+  },
+  {
+    "tipo": "climatico",
+    "titulo": "Niebla persistente por 36 horas consecutivas",
+    "contenido_texto": "Episodio de niebla persistente del 27 al 28 de agosto afectó operaciones por 36 horas consecutivas. En total 87 vuelos fueron cancelados y 134 retrasados. Más de 12,000 pasajeros fueron afectados. El aeropuerto activó el plan de contingencia de pasajeros varados.",
+    "fecha": "2024-08-27",
+    "idioma": "es",
+    "prioridad": "alta",
+    "tags": [
+      "niebla",
+      "cancelaciones",
+      "pasajeros varados"
+    ]
+  },
+  {
+    "tipo": "seguridad",
+    "titulo": "Operativo contra contrabando de cigarrillos",
+    "contenido_texto": "El 1 de septiembre DIAN y Policía incautaron 8,000 cartones de cigarrillos de contrabando distribuidos entre 12 maletas de distintos pasajeros. Los cigarrillos estaban distribuidos estratégicamente para evadir controles. Valor estimado: 240 millones de pesos.",
+    "fecha": "2024-09-01",
+    "idioma": "es",
+    "prioridad": "media",
+    "tags": [
+      "contrabando",
+      "cigarrillos",
+      "DIAN"
+    ]
+  },
+  {
+    "tipo": "operativo",
+    "titulo": "Inauguración primer lounge médico",
+    "contenido_texto": "El 5 de septiembre abrió el primer lounge médico del aeropuerto con servicios de enfermería, toma de tensión, oximetría y consultas de telemedicina. El espacio fue diseñado para viajeros frecuentes y adultos mayores. El servicio básico es gratuito.",
+    "fecha": "2024-09-05",
+    "idioma": "es",
+    "prioridad": "baja",
+    "tags": [
+      "médico",
+      "salud",
+      "lounge"
+    ]
+  },
+  {
+    "tipo": "mantenimiento",
+    "titulo": "Cambio de turbinas en planta eléctrica de emergencia",
+    "contenido_texto": "El 9 de septiembre se completó el reemplazo de las cuatro turbinas de la planta eléctrica de emergencia. Las nuevas turbinas Caterpillar C32 pueden arrancar en 10 segundos y tienen capacidad de 3,200 kW. El proyecto tuvo un costo de 5.8 millones de dólares.",
+    "fecha": "2024-09-09",
+    "idioma": "es",
+    "prioridad": "alta",
+    "tags": [
+      "turbinas",
+      "planta eléctrica",
+      "emergencia"
+    ]
+  },
+  {
+    "tipo": "incidente",
+    "titulo": "Confusión de aeronaves en posición de espera",
+    "contenido_texto": "El 13 de septiembre dos aeronaves avanzaron hacia la pista sin autorización de la torre de control. El controlador detectó el conflicto a tiempo y ordenó detención inmediata. Una investigación de seguridad operacional fue abierta. Los dos pilotos fueron temporalmente suspendidos.",
+    "fecha": "2024-09-13",
+    "idioma": "es",
+    "prioridad": "alta",
+    "tags": [
+      "runway incursion",
+      "torre de control",
+      "seguridad"
+    ]
+  },
+  {
+    "tipo": "climatico",
+    "titulo": "Lluvia ácida reportada por primera vez",
+    "contenido_texto": "El laboratorio ambiental del aeropuerto detectó precipitación con pH de 4.2 el 17 de septiembre, catalogada como lluvia ácida. Posiblemente relacionada con emisiones industriales del área metropolitana. Se tomaron muestras adicionales para análisis y se reportó al IDEAM.",
+    "fecha": "2024-09-17",
+    "idioma": "es",
+    "prioridad": "media",
+    "tags": [
+      "lluvia ácida",
+      "ambiental",
+      "IDEAM"
+    ]
+  },
+  {
+    "tipo": "seguridad",
+    "titulo": "Certificación ISO 28000 en gestión de seguridad",
+    "contenido_texto": "El 21 de septiembre el aeropuerto obtuvo la certificación ISO 28000 de Gestión de Seguridad en la Cadena de Suministro. Es el primero en Colombia en obtenerla. La certificación avala los procesos de seguridad de carga, equipaje y acceso a zonas restringidas.",
+    "fecha": "2024-09-21",
+    "idioma": "es",
+    "prioridad": "media",
+    "tags": [
+      "ISO 28000",
+      "certificación",
+      "cadena suministro"
+    ]
+  },
+  {
+    "tipo": "operativo",
+    "titulo": "Firma convenio con aeropuerto de Frankfurt",
+    "contenido_texto": "El 25 de septiembre se firmó convenio de colaboración con Fraport AG (aeropuerto de Frankfurt). El acuerdo implica intercambio de buenas prácticas, entrenamiento de personal y desarrollo de rutas conjuntas con aerolíneas europeas. Duración de 5 años.",
+    "fecha": "2024-09-25",
+    "idioma": "es",
+    "prioridad": "baja",
+    "tags": [
+      "Frankfurt",
+      "convenio",
+      "colaboración"
+    ]
+  },
+  {
+    "tipo": "mantenimiento",
+    "titulo": "Inspección submarina del sistema de drenaje",
+    "contenido_texto": "El 29 de septiembre se realizó inspección con robot subacuático del sistema de tuberías de drenaje de las pistas. Se detectaron sedimentos y una obstrucción parcial en el colector principal sur. El trabajo de limpieza se programó para octubre en horario nocturno.",
+    "fecha": "2024-09-29",
+    "idioma": "es",
+    "prioridad": "media",
+    "tags": [
+      "drenaje",
+      "inspección",
+      "robot"
+    ]
+  },
+  {
+    "tipo": "incidente",
+    "titulo": "Fallo hidráulico en aeronave durante rodaje",
+    "contenido_texto": "La aeronave HK-4456 reportó fallo en el sistema hidráulico número 2 durante el rodaje hacia la pista el 3 de octubre. La aeronave retornó a plataforma de forma autónoma y fue inmovilizada. Los 89 pasajeros fueron transladados a otra aeronave con retraso de 3 horas.",
+    "fecha": "2024-10-03",
+    "idioma": "es",
+    "prioridad": "alta",
+    "tags": [
+      "hidráulico",
+      "fallo técnico",
+      "rodaje"
+    ]
+  },
+  {
+    "tipo": "operativo",
+    "titulo": "Expansión de zona de tiendas libres de impuesto",
+    "contenido_texto": "El 7 de octubre abrió la nueva zona duty-free de 3,500 metros cuadrados en el terminal internacional. Las tiendas incluyen licores, perfumes, electrónicos y artesanías colombianas. Se esperan ingresos adicionales de 12 millones de dólares anuales.",
+    "fecha": "2024-10-07",
+    "idioma": "es",
+    "prioridad": "baja",
+    "tags": [
+      "duty-free",
+      "comercio",
+      "ingresos"
+    ]
+  },
+  {
+    "tipo": "climatico",
+    "titulo": "Viento de cola supera límites operacionales",
+    "contenido_texto": "El 11 de octubre vientos de cola en la pista 13 superaron los 10 nudos permitidos para operaciones. Se cambió la dirección de pista a la 31, generando 45 minutos de interrupción durante la reconfiguración del tráfico. Ocho vuelos sufrieron retrasos superiores a una hora.",
+    "fecha": "2024-10-11",
+    "idioma": "es",
+    "prioridad": "media",
+    "tags": [
+      "viento de cola",
+      "pista",
+      "operaciones"
+    ]
+  },
+  {
+    "tipo": "seguridad",
+    "titulo": "Instalación de cámaras 360° en zona de carga",
+    "contenido_texto": "El 15 de octubre se completó la instalación de 48 cámaras de vigilancia 360° en la terminal de carga. El sistema incluye analítica de video con detección de comportamientos anómalos. El almacenamiento de video es de 90 días en la nube.",
+    "fecha": "2024-10-15",
+    "idioma": "es",
+    "prioridad": "media",
+    "tags": [
+      "cámaras",
+      "vigilancia",
+      "carga"
+    ]
+  },
+  {
+    "tipo": "mantenimiento",
+    "titulo": "Reemplazo de señalización luminosa de taxiways",
+    "contenido_texto": "El 19 de octubre se completó el reemplazo de 1,240 luminarias de taxiway por tecnología LED. El consumo eléctrico se redujo en 65%. Las nuevas luminarias tienen vida útil de 100,000 horas versus 15,000 de las halógenas que reemplazaron.",
+    "fecha": "2024-10-19",
+    "idioma": "es",
+    "prioridad": "media",
+    "tags": [
+      "LED",
+      "taxiway",
+      "ahorro energético"
+    ]
+  },
+  {
+    "tipo": "incidente",
+    "titulo": "Pérdida de comunicación con aeronave en ruta",
+    "contenido_texto": "El 23 de octubre la aeronave AV812 perdió comunicación con el control de tráfico aéreo durante 18 minutos. La comunicación se restableció al cambiar de frecuencia. La causa fue una falla en la radio VHF principal. El copilotos usó la radio de emergencia.",
+    "fecha": "2024-10-23",
+    "idioma": "es",
+    "prioridad": "alta",
+    "tags": [
+      "comunicación",
+      "radio",
+      "emergencia"
+    ]
+  },
+  {
+    "tipo": "operativo",
+    "titulo": "Alianza con hotel para paquetes de tránsito",
+    "contenido_texto": "El 27 de octubre se firmó alianza con la cadena hotelera NH Hotels para ofrecer paquetes de tránsito con estadía de 4 a 8 horas. El paquete incluye traslado, habitación y desayuno. Diseñado para pasajeros con escalas largas internacionales.",
+    "fecha": "2024-10-27",
+    "idioma": "es",
+    "prioridad": "baja",
+    "tags": [
+      "hotel",
+      "tránsito",
+      "escalas"
+    ]
+  },
+  {
+    "tipo": "climatico",
+    "titulo": "Granizada impide operaciones de carga nocturna",
+    "contenido_texto": "La granizada registrada el 31 de octubre, con piedras de hasta 4 cm, impidió las operaciones de carga en plataforma durante 3 horas nocturnas. Los vehículos de rampa fueron retirados por seguridad. Doce vuelos de carga sufrieron retrasos de 2 a 5 horas.",
+    "fecha": "2024-10-31",
+    "idioma": "es",
+    "prioridad": "alta",
+    "tags": [
+      "granizada",
+      "carga",
+      "nocturno"
+    ]
+  },
+  {
+    "tipo": "seguridad",
+    "titulo": "Capacitación AVSEC a 350 empleados nuevos",
+    "contenido_texto": "El 4 de noviembre finalizó el programa trimestral de capacitación AVSEC (Aviation Security) para 350 empleados nuevos. El programa incluye identificación de amenazas, manejo de situaciones de crisis y uso de equipos de detección. Todos aprobaron la evaluación final.",
+    "fecha": "2024-11-04",
+    "idioma": "es",
+    "prioridad": "media",
+    "tags": [
+      "AVSEC",
+      "capacitación",
+      "empleados"
+    ]
+  },
+  {
+    "tipo": "mantenimiento",
+    "titulo": "Prueba de los nuevos puentes de abordaje terminales B",
+    "contenido_texto": "El 8 de noviembre se realizaron pruebas de los primeros 4 puentes de abordaje instalados en el terminal B. Los puentes Thyssen Krupp fueron probados con aeronaves Boeing 767 y Airbus A321. Todos funcionaron correctamente y fueron habilitados para operaciones.",
+    "fecha": "2024-11-08",
+    "idioma": "es",
+    "prioridad": "media",
+    "tags": [
+      "puentes",
+      "boarding",
+      "terminal B"
+    ]
+  },
+  {
+    "tipo": "incidente",
+    "titulo": "Corte de energía afecta sistemas de control",
+    "contenido_texto": "El 12 de noviembre un corte inesperado de la red eléctrica afectó el terminal por 22 minutos antes de que el UPS entrara en operación completa. Los sistemas de check-in estuvieron inoperantes. La causa fue una falla en la subestación eléctrica de la empresa de energía.",
+    "fecha": "2024-11-12",
+    "idioma": "es",
+    "prioridad": "alta",
+    "tags": [
+      "corte energía",
+      "UPS",
+      "sistemas"
+    ]
+  },
+  {
+    "tipo": "operativo",
+    "titulo": "Incorporación de sistema de check-in biométrico",
+    "contenido_texto": "El 16 de noviembre Latam activó el primer sistema de check-in biométrico en Colombia, donde el pasajero confirma su identidad con huella dactilar. El proceso toma 8 segundos. El sistema está integrado con el sistema de pasaporte electrónico colombiano.",
+    "fecha": "2024-11-16",
+    "idioma": "es",
+    "prioridad": "baja",
+    "tags": [
+      "check-in",
+      "biométrico",
+      "Latam"
+    ]
+  },
+  {
+    "tipo": "climatico",
+    "titulo": "Primera lluvia de la temporada afecta en conjunto",
+    "contenido_texto": "Las primeras lluvias de la temporada invernal el 20 de noviembre coincidieron con alta demanda de vuelos por puente festivo. La combinación causó 34 cancelaciones y 67 retrasos. Los sistemas de drenaje, reforzados en agosto, funcionaron correctamente sin inundaciones.",
+    "fecha": "2024-11-20",
+    "idioma": "es",
+    "prioridad": "media",
+    "tags": [
+      "lluvia",
+      "temporada",
+      "puente festivo"
+    ]
+  },
+  {
+    "tipo": "seguridad",
+    "titulo": "Detección de explosivo plástico en equipaje",
+    "contenido_texto": "El 24 de noviembre el sistema de detección de trazas identificó residuos de explosivo plástico tipo C4 en una maleta. La maleta fue aislada y destruida en área controlada por la unidad antiexplosivos. El propietario resultó ser un técnico en demolición con documentación irregular.",
+    "fecha": "2024-11-24",
+    "idioma": "es",
+    "prioridad": "alta",
+    "tags": [
+      "explosivo",
+      "detección",
+      "antiexplosivos"
+    ]
+  },
+  {
+    "tipo": "mantenimiento",
+    "titulo": "Recertificación anual sistema contra incendios",
+    "contenido_texto": "El 28 de noviembre el Cuerpo de Bomberos realizó la recertificación anual del sistema contra incendios del terminal. Se probaron 2,340 aspersores, 180 extintores y 12 hidrantes. Se encontraron 3 aspersores con presión baja que fueron reemplazados inmediatamente.",
+    "fecha": "2024-11-28",
+    "idioma": "es",
+    "prioridad": "media",
+    "tags": [
+      "contra incendios",
+      "certificación",
+      "bomberos"
+    ]
+  },
+  {
+    "tipo": "operativo",
+    "titulo": "Balance de operaciones diciembre 2024",
+    "contenido_texto": "En diciembre de 2024 el aeropuerto registró 1.8 millones de pasajeros, el mejor mes de su historia. Se operaron 12,400 vuelos con una puntualidad del 82%. La ruta más transitada fue Bogotá-Miami con 45 vuelos diarios entre todas las aerolíneas.",
+    "fecha": "2024-12-31",
+    "idioma": "es",
+    "prioridad": "baja",
+    "tags": [
+      "balance",
+      "diciembre",
+      "record"
+    ]
+  },
+  {
+    "tipo": "incidente",
+    "titulo": "Colisión de aves en formación con B787",
+    "contenido_texto": "El 15 de diciembre el vuelo AV100 reportó impacto múltiple de aves en ambos motores durante el ascenso inicial. El vuelo continuó sin problemas pero aterrizó en destino con motores inspeccionados. Se encontraron daños menores en el cowling del motor izquierdo.",
+    "fecha": "2024-12-15",
+    "idioma": "es",
+    "prioridad": "media",
+    "tags": [
+      "bird strike",
+      "B787",
+      "motores"
+    ]
+  },
+  {
+    "tipo": "seguridad",
+    "titulo": "Operativo antinarcóticos temporada navideña",
+    "contenido_texto": "Del 15 al 31 de diciembre se realizó el operativo especial antinarcóticos con refuerzo de 80 agentes de la Policía Nacional. Se incautaron 12 kilogramos de cocaína distribuidos en dobles fondos. Cinco personas fueron detenidas en distintos vuelos internacionales.",
+    "fecha": "2024-12-20",
+    "idioma": "es",
+    "prioridad": "alta",
+    "tags": [
+      "narcóticos",
+      "navidad",
+      "operativo"
+    ]
+  },
+  {
+    "tipo": "climatico",
+    "titulo": "Vientos huracanados por frente frío diciembre",
+    "contenido_texto": "El frente frío del 22 de diciembre generó vientos de hasta 65 nudos que obligaron a cancelar 28 vuelos y desviar otros 15. Es el evento de viento más fuerte registrado en los últimos 10 años. La terminal estuvo cerrada por 5 horas durante el pico de la tormenta.",
+    "fecha": "2024-12-22",
+    "idioma": "es",
+    "prioridad": "alta",
+    "tags": [
+      "vientos",
+      "frente frío",
+      "cancelaciones"
+    ]
+  },
+  {
+    "titulo": "Falla en sistema de iluminación de pista",
+    "tipo": "mantenimiento",
+    "contenido_texto": "El 3 de marzo de 2024, se reportó una falla en el sistema de iluminación de la pista 22R durante las horas nocturnas. El sistema de luces de aproximación presentó intermitencia en seis luminarias consecutivas. Se activó el protocolo de mantenimiento nocturno y se despachó un equipo técnico de emergencia. La pista fue cerrada temporalmente durante 45 minutos mientras se reemplazaron los módulos defectuosos. Se notificó a la torre de control y se redirigieron dos vuelos en aproximación hacia la pista 18L sin incidentes.",
+    "fecha": "2024-03-03",
+    "idioma": "es",
+    "prioridad": "alta",
+    "tags": [
+      "pista",
+      "iluminación",
+      "mantenimiento",
+      "nocturno"
+    ]
+  },
+  {
+    "titulo": "Runway incursion alert at Terminal B",
+    "tipo": "seguridad",
+    "contenido_texto": "On March 15, 2024, a runway incursion alert was triggered at Terminal B when a ground support vehicle entered the active runway 18L without clearance. Air traffic control immediately issued a go-around instruction to an incoming aircraft at 300 feet altitude. The vehicle operator was identified and removed from airside duties pending investigation. The incident was classified as Category C severity. Airport security protocols were reviewed and mandatory retraining was scheduled for all ground vehicle operators within the next 30 days.",
+    "fecha": "2024-03-15",
+    "idioma": "en",
+    "prioridad": "alta",
+    "tags": [
+      "runway",
+      "incursion",
+      "security",
+      "ground-vehicle"
+    ]
+  },
+  {
+    "titulo": "Heavy fog advisory affecting visibility",
+    "tipo": "climatico",
+    "contenido_texto": "On April 2, 2024, dense fog reduced visibility at the airport to below 200 meters, triggering CAT III ILS approach procedures. Eleven flights were delayed an average of 1.5 hours. Three international arrivals were diverted to alternate airports. The meteorological station recorded relative humidity at 98% and temperature at 8°C. Conditions improved progressively after 09:30 local time. The operations center coordinated gate reassignments for delayed passengers and issued real-time updates through the airport information display system.",
+    "fecha": "2024-04-02",
+    "idioma": "en",
+    "prioridad": "media",
+    "tags": [
+      "fog",
+      "visibility",
+      "CAT-III",
+      "delays"
+    ]
+  },
+  {
+    "titulo": "Reporte de equipaje no reclamado en Terminal A",
+    "tipo": "seguridad",
+    "contenido_texto": "El 10 de abril de 2024 se identificó una maleta sin reclamar en la banda de equipajes número 4 de la Terminal A, perteneciente al vuelo AV305 procedente de Bogotá. Transcurrida una hora sin que el propietario se presentara, se activó el protocolo de equipaje sospechoso. El equipo canino de seguridad realizó una inspección que descartó contenido peligroso. Posteriormente se localizó al pasajero propietario, quien había abandonado el aeropuerto confundido con el número de banda. El equipaje fue entregado y el caso fue cerrado sin mayores consecuencias.",
+    "fecha": "2024-04-10",
+    "idioma": "es",
+    "prioridad": "media",
+    "tags": [
+      "equipaje",
+      "seguridad",
+      "terminal-A",
+      "protocolo"
+    ]
+  },
+  {
+    "titulo": "Fuel spill incident near Gate C7",
+    "tipo": "incidente",
+    "contenido_texto": "On April 18, 2024, a minor fuel spill occurred near Gate C7 during the refueling of aircraft registration HK-4821. Approximately 15 liters of Jet A-1 fuel leaked from a defective coupling on the refueling truck. The area was immediately cordoned off and the airport fire brigade responded within 3 minutes. Absorbent material was deployed and the spill was contained without ignition. The refueling truck was taken out of service for inspection. An environmental impact assessment was filed with the airport authority as required by regulation.",
+    "fecha": "2024-04-18",
+    "idioma": "en",
+    "prioridad": "alta",
+    "tags": [
+      "fuel",
+      "spill",
+      "gate-C7",
+      "fire-brigade"
+    ]
+  },
+  {
+    "titulo": "Mantenimiento preventivo de sistema de climatización",
+    "tipo": "mantenimiento",
+    "contenido_texto": "El 25 de abril de 2024 se realizó el mantenimiento preventivo programado del sistema de climatización de la Terminal B. Se revisaron y limpiaron 24 unidades manejadoras de aire, se reemplazaron 18 filtros HEPA y se verificaron los niveles de refrigerante en 8 equipos de condensación exterior. El trabajo se ejecutó en horario nocturno entre las 00:00 y las 06:00 para minimizar el impacto en los pasajeros. Todos los equipos superaron las pruebas de rendimiento. El siguiente mantenimiento preventivo queda programado para el mes de octubre de 2024.",
+    "fecha": "2024-04-25",
+    "idioma": "es",
+    "prioridad": "baja",
+    "tags": [
+      "climatización",
+      "HVAC",
+      "preventivo",
+      "Terminal-B"
+    ]
+  },
+  {
+    "titulo": "Passenger medical emergency on arrival",
+    "tipo": "operativo",
+    "contenido_texto": "On May 5, 2024, a passenger on flight LA432 from Lima experienced a cardiac event during final approach. The crew alerted the control tower and medical personnel were positioned at the gate upon arrival. The aircraft was given priority landing clearance and docked at Gate A3. Emergency medical technicians boarded within 90 seconds of door opening and administered treatment. The passenger was stabilized and transported to the nearest hospital by ambulance. The incident was documented per IATA medical emergency reporting standards. The remaining passengers deplaned normally with a 22-minute delay.",
+    "fecha": "2024-05-05",
+    "idioma": "en",
+    "prioridad": "alta",
+    "tags": [
+      "medical",
+      "emergency",
+      "passenger",
+      "priority-landing"
+    ]
+  },
+  {
+    "titulo": "Actualización de protocolo de embarque prioritario",
+    "tipo": "operativo",
+    "contenido_texto": "El 12 de mayo de 2024, la dirección de operaciones aeroportuarias emitió una actualización al protocolo de embarque prioritario para pasajeros con movilidad reducida. El nuevo procedimiento establece que el traslado en silla de ruedas debe solicitarse con mínimo 72 horas de anticipación, y que el personal de asistencia debe presentarse en el puesto de control 40 minutos antes de la hora de embarque. Se incorporaron señalizaciones visuales adicionales en los pasillos de acceso y se capacitó al personal de puertas. La actualización entra en vigencia a partir del 1 de junio de 2024.",
+    "fecha": "2024-05-12",
+    "idioma": "es",
+    "prioridad": "baja",
+    "tags": [
+      "embarque",
+      "movilidad-reducida",
+      "protocolo",
+      "actualización"
+    ]
+  },
+  {
+    "titulo": "Thunderstorm ground stop - operations suspended",
+    "tipo": "climatico",
+    "contenido_texto": "On May 20, 2024, a severe thunderstorm system with lightning activity within 8 nautical miles of the airport triggered a ground stop lasting 55 minutes. All ramp operations were suspended per safety protocol. Fourteen aircraft were held at gates and four were placed in a holding pattern over the VOR beacon. Wind gusts reached 62 km/h and hail was reported on the south apron. Upon weather clearance at 15:47 local time, a coordinated pushback sequence was executed to recover the schedule. Total operational impact affected 28 flights with an average delay of 70 minutes. No personnel injuries were reported.",
+    "fecha": "2024-05-20",
+    "idioma": "en",
+    "prioridad": "alta",
+    "tags": [
+      "thunderstorm",
+      "ground-stop",
+      "lightning",
+      "ramp"
+    ]
+  },
+  {
+    "titulo": "Unauthorized drone detection near approach path",
+    "tipo": "seguridad",
+    "contenido_texto": "On June 3, 2024, radar operators detected an unauthorized drone operating at approximately 150 meters altitude within the controlled airspace approach corridor for runway 22R. Two incoming flights were issued holding instructions while airport security and civil aviation authorities were notified. The drone was lost from radar after 8 minutes without interception. A formal incident report was filed with the national aviation authority. The airport has since initiated a drone countermeasure technology evaluation process to prevent recurrence.",
+    "fecha": "2024-06-03",
+    "idioma": "en",
+    "prioridad": "alta",
+    "tags": [
+      "drone",
+      "airspace",
+      "security",
+      "radar"
+    ]
+  },
+  {
+    "titulo": "Baggage handling system conveyor failure",
+    "tipo": "mantenimiento",
+    "contenido_texto": "On June 10, 2024, the main baggage conveyor belt in Terminal A suffered a mechanical failure during peak morning operations, affecting outbound flights between 07:00 and 09:30. Approximately 340 bags were manually rerouted to alternate handling points. The failure was traced to a worn drive motor bearing. The component was replaced within 2.5 hours and system testing confirmed full operational status by 09:45. Fourteen flights experienced checked baggage delays ranging from 15 to 45 minutes. Passengers were informed via gate announcements.",
+    "fecha": "2024-06-10",
+    "idioma": "en",
+    "prioridad": "media",
+    "tags": [
+      "baggage",
+      "conveyor",
+      "terminal-A",
+      "mechanical"
+    ]
+  },
+  {
+    "titulo": "Passenger evacuation drill at Terminal B gates",
+    "tipo": "seguridad",
+    "contenido_texto": "On June 18, 2024, a scheduled emergency evacuation drill was conducted at gates B5 through B12 during a low-traffic period between 13:00 and 15:00. Approximately 180 airport staff participated including ground crew, security officers, cleaning staff and gate agents. The drill simulated a fire alarm scenario requiring full terminal evacuation. Evacuation was completed in 4 minutes 22 seconds, surpassing the 5-minute target. Debriefing identified two bottlenecks at stairwells B7 and B9 that will be addressed through signage improvements.",
+    "fecha": "2024-06-18",
+    "idioma": "en",
+    "prioridad": "baja",
+    "tags": [
+      "evacuation",
+      "drill",
+      "terminal-B",
+      "fire"
+    ]
+  },
+  {
+    "titulo": "Ice accumulation on taxiway causes ground delay",
+    "tipo": "climatico",
+    "contenido_texto": "On July 2, 2024, overnight temperatures dropped to -2°C causing ice accumulation on taxiway Charlie and parts of the southern apron. Morning operations were delayed by 35 minutes while de-icing crews applied glycol treatment to affected surfaces. Seven departures were held at gates pending clearance. The meteorological service had issued a frost advisory the previous evening but the extent of ice formation exceeded predictions. Following the incident, the airport revised its low-temperature response protocol to begin de-icing procedures proactively when temperatures fall below 1°C.",
+    "fecha": "2024-07-02",
+    "idioma": "en",
+    "prioridad": "media",
+    "tags": [
+      "ice",
+      "taxiway",
+      "de-icing",
+      "frost"
+    ]
+  },
+  {
+    "titulo": "Aircraft bird strike reported on departure from runway 18L",
+    "tipo": "incidente",
+    "contenido_texto": "On July 15, 2024, flight AV518 reported a bird strike during initial climb after departure from runway 18L. The crew reported impact with a flock of approximately 12 birds at 800 feet altitude. Engine number 1 showed minor vibration indicators. The crew declared a precautionary pan-pan and returned for an uneventful landing. Post-landing engine inspection confirmed superficial fan blade damage on engine 1. The aircraft was taken out of service for maintenance. Airport wildlife management conducted a habitat assessment and increased dispersal patrols in the southern perimeter.",
+    "fecha": "2024-07-15",
+    "idioma": "en",
+    "prioridad": "alta",
+    "tags": [
+      "bird-strike",
+      "engine",
+      "departure",
+      "wildlife"
+    ]
+  }
+]

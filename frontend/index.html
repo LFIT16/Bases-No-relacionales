@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Airport RAG — Operaciones Aeroportuarias</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: system-ui, -apple-system, sans-serif; background: #f5f6fa; color: #1a1a2e; min-height: 100vh; }
+
+  header { background: #1a1a2e; color: white; padding: 1rem 2rem; display: flex; align-items: center; gap: 1rem; }
+  header h1 { font-size: 1.2rem; font-weight: 600; }
+  header span { font-size: 0.8rem; background: #378ADD; padding: 2px 10px; border-radius: 20px; }
+
+  nav { background: white; border-bottom: 1px solid #e0e0e0; display: flex; padding: 0 2rem; }
+  nav button { padding: 1rem 1.5rem; border: none; background: none; cursor: pointer; font-size: 0.9rem; color: #666; border-bottom: 3px solid transparent; transition: all 0.2s; }
+  nav button.active { color: #378ADD; border-bottom-color: #378ADD; font-weight: 600; }
+  nav button:hover { color: #378ADD; background: #f0f7ff; }
+
+  .container { max-width: 900px; margin: 2rem auto; padding: 0 1rem; }
+
+  .tab { display: none; }
+  .tab.active { display: block; }
+
+  .card { background: white; border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; border: 1px solid #e8e8e8; }
+  .card h2 { font-size: 1rem; font-weight: 600; margin-bottom: 1rem; color: #1a1a2e; display: flex; align-items: center; gap: 8px; }
+
+  textarea, input[type=text], select {
+    width: 100%; padding: 0.75rem 1rem; border: 1px solid #ddd; border-radius: 8px;
+    font-size: 0.95rem; font-family: inherit; resize: vertical;
+    transition: border-color 0.2s; outline: none;
+  }
+  textarea:focus, input:focus, select:focus { border-color: #378ADD; box-shadow: 0 0 0 3px rgba(55,138,221,0.15); }
+
+  .row { display: flex; gap: 1rem; margin-top: 1rem; flex-wrap: wrap; }
+  .field { flex: 1; min-width: 140px; }
+  .field label { display: block; font-size: 0.8rem; color: #666; margin-bottom: 4px; font-weight: 500; }
+
+  .btn { padding: 0.7rem 1.5rem; background: #378ADD; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 0.9rem; font-weight: 600; transition: background 0.2s; }
+  .btn:hover { background: #185FA5; }
+  .btn:disabled { background: #aaa; cursor: not-allowed; }
+  .btn-outline { background: white; color: #378ADD; border: 1px solid #378ADD; }
+  .btn-outline:hover { background: #f0f7ff; }
+
+  .result-box { background: #f8faff; border: 1px solid #d0e4f7; border-radius: 8px; padding: 1rem; margin-top: 1rem; }
+  .answer-text { font-size: 0.95rem; line-height: 1.7; color: #1a1a2e; white-space: pre-wrap; }
+
+  .chunk { background: white; border: 1px solid #e8e8e8; border-radius: 8px; padding: 1rem; margin-top: 0.75rem; }
+  .chunk-header { display: flex; gap: 8px; margin-bottom: 8px; flex-wrap: wrap; }
+  .badge { font-size: 0.72rem; padding: 2px 8px; border-radius: 20px; font-weight: 600; }
+  .badge-fixed { background: #e8f4fd; color: #185FA5; }
+  .badge-sentence { background: #e8f9f0; color: #0F6E56; }
+  .badge-semantic { background: #f3eeff; color: #534AB7; }
+  .badge-tipo { background: #fff3e0; color: #854F0B; }
+  .badge-score { background: #f1f1f1; color: #444; margin-left: auto; }
+  .chunk-text { font-size: 0.88rem; line-height: 1.6; color: #444; }
+
+  .compare-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1rem; }
+  .compare-col { border: 1px solid #e8e8e8; border-radius: 10px; overflow: hidden; }
+  .compare-col-header { padding: 0.75rem 1rem; font-weight: 600; font-size: 0.85rem; text-align: center; }
+  .col-fixed .compare-col-header { background: #e8f4fd; color: #185FA5; }
+  .col-sentence .compare-col-header { background: #e8f9f0; color: #0F6E56; }
+  .col-semantic .compare-col-header { background: #f3eeff; color: #534AB7; }
+  .compare-item { padding: 0.75rem 1rem; border-top: 1px solid #f0f0f0; font-size: 0.82rem; line-height: 1.5; color: #444; }
+
+  .loader { display: none; text-align: center; padding: 2rem; color: #888; }
+  .loader.active { display: block; }
+  .spinner { width: 32px; height: 32px; border: 3px solid #e0e0e0; border-top-color: #378ADD; border-radius: 50%; animation: spin 0.8s linear infinite; margin: 0 auto 0.75rem; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .error { background: #fff0f0; border: 1px solid #ffcccc; color: #c0392b; border-radius: 8px; padding: 1rem; margin-top: 1rem; font-size: 0.9rem; }
+
+  .status-dot { width: 8px; height: 8px; border-radius: 50%; background: #27ae60; display: inline-block; }
+  .status-dot.red { background: #e74c3c; }
+
+  .img-card { background: white; border: 1px solid #e8e8e8; border-radius: 10px; padding: 1rem; }
+  .img-icon { width: 60px; height: 60px; background: #f0f7ff; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; margin-bottom: 0.75rem; }
+  .img-tipo { font-size: 0.72rem; padding: 2px 8px; border-radius: 20px; background: #f3eeff; color: #534AB7; font-weight: 600; display: inline-block; margin-bottom: 0.5rem; }
+  .img-desc { font-size: 0.85rem; color: #555; line-height: 1.5; }
+  .img-score { font-size: 0.75rem; color: #888; margin-top: 0.5rem; }
+
+  .imgs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem; }
+
+  @media (max-width: 600px) {
+    .compare-grid { grid-template-columns: 1fr; }
+    .row { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>✈ Airport RAG System</h1>
+  </div>
+  <span>NoSQL · MongoDB Atlas</span>
+  <div style="margin-left:auto; display:flex; align-items:center; gap:6px; font-size:0.82rem;">
+    <span class="status-dot" id="dot"></span>
+    <span id="status-text">Verificando...</span>
+  </div>
+</header>
+
+<nav>
+  <button class="active" onclick="switchTab('rag')">Preguntar al RAG</button>
+  <button onclick="switchTab('buscar')">Búsqueda semántica</button>
+  <button onclick="switchTab('comparar')">Comparar chunking</button>
+  <button onclick="switchTab('imagenes')">Búsqueda de imágenes</button>
+</nav>
+
+<div class="container">
+
+  <!-- TAB 1: RAG -->
+  <div class="tab active" id="tab-rag">
+    <div class="card">
+      <h2>💬 Pregunta al sistema RAG</h2>
+      <textarea id="rag-question" rows="3" placeholder="Ej: ¿Qué protocolos se activaron en incidentes de seguridad?"></textarea>
+      <div class="row">
+        <div class="field">
+          <label>Tipo de reporte</label>
+          <select id="rag-tipo">
+            <option value="">Todos</option>
+            <option value="incidente">Incidente</option>
+            <option value="seguridad">Seguridad</option>
+            <option value="climatico">Climático</option>
+            <option value="mantenimiento">Mantenimiento</option>
+            <option value="operativo">Operativo</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Estrategia chunking</label>
+          <select id="rag-strategy">
+            <option value="">Todas</option>
+            <option value="fixed">Fixed-size</option>
+            <option value="sentence">Sentence-aware</option>
+            <option value="semantic">Semantic</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Prioridad</label>
+          <select id="rag-prioridad">
+            <option value="">Todas</option>
+            <option value="alta">Alta</option>
+            <option value="media">Media</option>
+            <option value="baja">Baja</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Chunks a recuperar</label>
+          <select id="rag-limit">
+            <option value="3">3</option>
+            <option value="5" selected>5</option>
+            <option value="10">10</option>
+          </select>
+        </div>
+      </div>
+      <div style="margin-top:1rem">
+        <button class="btn" onclick="sendRag()">Generar respuesta</button>
+      </div>
+    </div>
+
+    <div class="loader" id="rag-loader"><div class="spinner"></div>Consultando LLM y MongoDB...</div>
+    <div id="rag-result"></div>
+  </div>
+
+  <!-- TAB 2: BUSCAR -->
+  <div class="tab" id="tab-buscar">
+    <div class="card">
+      <h2>🔍 Búsqueda semántica</h2>
+      <input type="text" id="search-query" placeholder="Ej: incidentes con vehículos en pista" />
+      <div class="row">
+        <div class="field">
+          <label>Tipo</label>
+          <select id="search-tipo">
+            <option value="">Todos</option>
+            <option value="incidente">Incidente</option>
+            <option value="seguridad">Seguridad</option>
+            <option value="climatico">Climático</option>
+            <option value="mantenimiento">Mantenimiento</option>
+            <option value="operativo">Operativo</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Idioma</label>
+          <select id="search-idioma">
+            <option value="">Todos</option>
+            <option value="es">Español</option>
+            <option value="en">English</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Resultados</label>
+          <select id="search-limit">
+            <option value="5" selected>5</option>
+            <option value="10">10</option>
+          </select>
+        </div>
+      </div>
+      <div style="margin-top:1rem">
+        <button class="btn" onclick="sendSearch()">Buscar</button>
+      </div>
+    </div>
+    <div class="loader" id="search-loader"><div class="spinner"></div>Buscando en MongoDB Atlas...</div>
+    <div id="search-result"></div>
+  </div>
+
+  <!-- TAB 3: COMPARAR -->
+  <div class="tab" id="tab-comparar">
+    <div class="card">
+      <h2>📊 Comparar estrategias de chunking</h2>
+      <p style="font-size:0.88rem; color:#666; margin-bottom:1rem;">Ejecuta la misma consulta con las 3 estrategias y compara los resultados.</p>
+      <input type="text" id="compare-query" placeholder="Ej: condiciones climáticas adversas en operaciones" />
+      <div style="margin-top:1rem">
+        <button class="btn" onclick="sendCompare()">Comparar</button>
+      </div>
+    </div>
+    <div class="loader" id="compare-loader"><div class="spinner"></div>Ejecutando 3 estrategias...</div>
+    <div id="compare-result"></div>
+  </div>
+
+  <!-- TAB 4: IMÁGENES -->
+  <div class="tab" id="tab-imagenes">
+    <div class="card">
+      <h2>🖼 Búsqueda de imágenes aeroportuarias</h2>
+      <input type="text" id="img-query" placeholder="Ej: equipaje dañado en terminal, foto biométrica de personal" />
+      <div style="margin-top:1rem">
+        <button class="btn" onclick="sendImageSearch()">Buscar imágenes</button>
+      </div>
+    </div>
+    <div class="loader" id="img-loader"><div class="spinner"></div>Buscando imágenes...</div>
+    <div id="img-result"></div>
+  </div>
+
+</div>
+
+<script>
+const API = 'http://localhost:8000';
+
+const TIPO_ICONS = {
+  biometria: '👤', documento_identidad: '🪪', equipaje: '🧳',
+  incidente: '⚠️', infraestructura: '🏗️'
+};
+
+async function checkHealth() {
+  try {
+    const r = await fetch(API + '/health');
+    const d = await r.json();
+    document.getElementById('dot').className = 'status-dot';
+    document.getElementById('status-text').textContent = 'Conectado · ' + d.db;
+  } catch {
+    document.getElementById('dot').className = 'status-dot red';
+    document.getElementById('status-text').textContent = 'Sin conexión';
+  }
+}
+
+function switchTab(name) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + name).classList.add('active');
+  event.target.classList.add('active');
+}
+
+function badgeStrategy(s) {
+  const cls = s === 'fixed' ? 'badge-fixed' : s === 'sentence' ? 'badge-sentence' : 'badge-semantic';
+  return `<span class="badge ${cls}">${s}</span>`;
+}
+
+function renderChunks(chunks) {
+  if (!chunks || chunks.length === 0)
+    return '<p style="color:#888; font-size:0.9rem; padding:1rem">No se encontraron chunks. Verifica que el índice vectorial esté activo (READY) en Atlas.</p>';
+  return chunks.map(c => `
+    <div class="chunk">
+      <div class="chunk-header">
+        ${badgeStrategy(c.estrategia_chunking)}
+        ${c.metadatos?.tipo ? `<span class="badge badge-tipo">${c.metadatos.tipo}</span>` : ''}
+        ${c.metadatos?.fecha ? `<span class="badge" style="background:#f5f5f5;color:#555">${c.metadatos.fecha}</span>` : ''}
+        ${c.score ? `<span class="badge badge-score">score: ${c.score.toFixed(3)}</span>` : ''}
+      </div>
+      <div class="chunk-text">${c.chunk_texto}</div>
+    </div>`).join('');
+}
+
+async function sendRag() {
+  const q = document.getElementById('rag-question').value.trim();
+  if (!q) return;
+  const body = { question: q, limit: parseInt(document.getElementById('rag-limit').value) };
+  const tipo = document.getElementById('rag-tipo').value;
+  const strat = document.getElementById('rag-strategy').value;
+  const prio = document.getElementById('rag-prioridad').value;
+  if (tipo) body.tipo = tipo;
+  if (strat) body.strategy = strat;
+  if (prio) body.prioridad = prio;
+  body.usuario = 'frontend';
+
+  document.getElementById('rag-loader').classList.add('active');
+  document.getElementById('rag-result').innerHTML = '';
+
+  try {
+    const r = await fetch(API + '/rag', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify(body) });
+    const d = await r.json();
+    document.getElementById('rag-result').innerHTML = `
+      <div class="card">
+        <h2>💡 Respuesta del LLM</h2>
+        <div class="result-box"><div class="answer-text">${d.answer}</div></div>
+      </div>
+      <div class="card">
+        <h2>📎 Contexto recuperado (${d.chunks?.length || 0} chunks)</h2>
+        ${renderChunks(d.chunks)}
+      </div>`;
+  } catch (e) {
+    document.getElementById('rag-result').innerHTML = `<div class="error">Error al conectar con la API: ${e.message}</div>`;
+  }
+  document.getElementById('rag-loader').classList.remove('active');
+}
+
+async function sendSearch() {
+  const q = document.getElementById('search-query').value.trim();
+  if (!q) return;
+  const body = { query: q, limit: parseInt(document.getElementById('search-limit').value) };
+  const tipo = document.getElementById('search-tipo').value;
+  const idioma = document.getElementById('search-idioma').value;
+  if (tipo) body.tipo = tipo;
+  if (idioma) body.idioma = idioma;
+
+  document.getElementById('search-loader').classList.add('active');
+  document.getElementById('search-result').innerHTML = '';
+
+  try {
+    const r = await fetch(API + '/search', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify(body) });
+    const d = await r.json();
+    document.getElementById('search-result').innerHTML = `
+      <div class="card">
+        <h2>📄 ${d.total} resultados para: "${d.query}"</h2>
+        ${renderChunks(d.resultados)}
+      </div>`;
+  } catch (e) {
+    document.getElementById('search-result').innerHTML = `<div class="error">Error: ${e.message}</div>`;
+  }
+  document.getElementById('search-loader').classList.remove('active');
+}
+
+async function sendCompare() {
+  const q = document.getElementById('compare-query').value.trim();
+  if (!q) return;
+
+  document.getElementById('compare-loader').classList.add('active');
+  document.getElementById('compare-result').innerHTML = '';
+
+  try {
+    const r = await fetch(API + '/search', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify({ query: q, compare: true, limit: 3 }) });
+    const d = await r.json();
+    const c = d.comparacion;
+    const strats = ['fixed', 'sentence', 'semantic'];
+    const labels = { fixed: 'Fixed-size', sentence: 'Sentence-aware', semantic: 'Semantic' };
+    const maxLen = Math.max(...strats.map(s => (c[s]||[]).length));
+
+    let cols = strats.map(s => {
+      const items = (c[s] || []).map(chunk =>
+        `<div class="compare-item">${chunk.chunk_texto?.substring(0,200)}${chunk.chunk_texto?.length > 200 ? '...' : ''}<br><span style="font-size:0.75rem;color:#888;margin-top:4px;display:block">score: ${chunk.score?.toFixed(3) || 'N/A'}</span></div>`
+      ).join('');
+      return `<div class="compare-col col-${s}">
+        <div class="compare-col-header">${labels[s]}<br><span style="font-weight:400;font-size:0.75rem">${(c[s]||[]).length} chunks</span></div>
+        ${items || '<div class="compare-item" style="color:#aaa">Sin resultados</div>'}
+      </div>`;
+    }).join('');
+
+    document.getElementById('compare-result').innerHTML = `
+      <div class="card">
+        <h2>📊 Comparación para: "${q}"</h2>
+        <div class="compare-grid">${cols}</div>
+      </div>`;
+  } catch (e) {
+    document.getElementById('compare-result').innerHTML = `<div class="error">Error: ${e.message}</div>`;
+  }
+  document.getElementById('compare-loader').classList.remove('active');
+}
+
+async function sendImageSearch() {
+  const q = document.getElementById('img-query').value.trim();
+  if (!q) return;
+
+  document.getElementById('img-loader').classList.add('active');
+  document.getElementById('img-result').innerHTML = '';
+
+  try {
+    const r = await fetch(API + '/search/images', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify({ query: q, limit: 6 }) });
+    const d = await r.json();
+    
+    // DEBUG: Ver qué está llegando
+    console.log('Respuesta completa:', d);
+    console.log('Primer resultado:', d.resultados?.[0]);
+    console.log('URL del primer resultado:', d.resultados?.[0]?.metadatos?.url);
+    
+    const items = (d.resultados || []).map(item => {
+      const tipo = item.metadatos?.tipo_imagen || '';
+      const url = item.metadatos?.url || '';
+      const tieneUrl = url && url.length > 0;
+      
+      console.log(`Item ${item.doc_id}: tieneUrl=${tieneUrl}, url=${url}`); // DEBUG
+      
+      if (tieneUrl) {
+        return `<div class="img-card">
+          <img src="${url}" style="width:100%; height:160px; object-fit:cover; border-radius:8px; margin-bottom:10px;" 
+                onerror="console.log('ERROR cargando:', this.src); this.style.display='none'">
+          <div class="img-tipo">${tipo}</div>
+          <div class="img-desc">${item.chunk_texto.substring(0, 100)}${item.chunk_texto.length > 100 ? '...' : ''}</div>
+          <div class="img-score">Relevancia: ${item.score?.toFixed(3) || 'N/A'} · ${item.metadatos?.aeropuerto || ''} · ${item.metadatos?.fecha || ''}</div>
+        </div>`;
+      } else {
+        return `<div class="img-card">
+          <div class="img-icon">${TIPO_ICONS[tipo] || '📁'}</div>
+          <div class="img-tipo">${tipo}</div>
+          <div class="img-desc">${item.chunk_texto.substring(0, 100)}${item.chunk_texto.length > 100 ? '...' : ''}</div>
+          <div class="img-score">Relevancia: ${item.score?.toFixed(3) || 'N/A'} · ${item.metadatos?.aeropuerto || ''} · ${item.metadatos?.fecha || ''}</div>
+        </div>`;
+      }
+    }).join('');
+
+    document.getElementById('img-result').innerHTML = `
+      <div class="card">
+        <h2>🖼 ${d.total} imágenes encontradas</h2>
+        <div class="imgs-grid">${items || '<p style="color:#888">Sin resultados</p>'}</div>
+      </div>`;
+  } catch (e) {
+    document.getElementById('img-result').innerHTML = `<div class="error">Error: ${e.message}</div>`;
+  }
+  document.getElementById('img-loader').classList.remove('active');
+}
+document.getElementById('rag-question').addEventListener('keydown', e => { if (e.ctrlKey && e.key === 'Enter') sendRag(); });
+document.getElementById('search-query').addEventListener('keydown', e => { if (e.key === 'Enter') sendSearch(); });
+document.getElementById('compare-query').addEventListener('keydown', e => { if (e.key === 'Enter') sendCompare(); });
+document.getElementById('img-query').addEventListener('keydown', e => { if (e.key === 'Enter') sendImageSearch(); });
+
+checkHealth();
+</script>
+</body>
+</html>
