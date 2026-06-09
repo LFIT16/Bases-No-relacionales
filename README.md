@@ -82,6 +82,24 @@ VECTOR_INDEX_IMAGE=vector_index_imagen
 
 > **Importante:** nunca subir el archivo `.env` a un repositorio público.
 
+# Crear entorno virtual
+python -m venv venv
+
+# Activar entorno virtual (Windows)
+venv\Scripts\activate
+
+# Activar entorno virtual (Mac/Linux)
+# source venv/bin/activate
+
+# Instalar todas las dependencias necesarias
+pip install fastapi uvicorn pymongo python-dotenv sentence-transformers pydantic groq httpx pillow nltk scikit-learn
+
+# Instalar modelo NLTK
+python -c "import nltk; nltk.download('punkt'); nltk.download('punkt_tab'); nltk.download('averaged_perceptron_tagger')"
+
+# Verificar instalación
+pip list
+
 ### 4. Inicializar la base de datos
 
 ```bash
