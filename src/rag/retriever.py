@@ -1,12 +1,56 @@
+"""
+rag/retriever.py — Búsqueda vectorial e híbrida sobre todas las entidades
+del airport_db.
+
+Entidades soportadas:
+  • vuelos
+  • pasajeros
+  • empleados
+  • equipajes
+  • torre_control
+  • reportes
+  • aerolineas
+  • imagenes
+
+Funciones públicas:
+  vector_search(query, ...)
+  hybrid_search(query, ...)
+  entity_search(query, entidad, ...)
+  image_search(query, ...)
+  compare_strategies(query, ...)
+  multimodal_search(query, ...)
+  get_stats()
+"""
+
 from __future__ import annotations
 
-from typing import Any, Optional
+from typing import Any
 
 import config
-from ingesta.embeddings import embed_text, embed_text_clip
+from ingesta.embeddings import embed_text
+from PIL import Image
+from ingesta.embeddings import embed_image_clip
 
 
-# ── Constructor de pipeline $vectorSearch ─────────────────────────────────────
+# ─────────────────────────────────────────────────────────────────────────────
+# Tipos soportados
+# ─────────────────────────────────────────────────────────────────────────────
+
+TIPOS_FUENTE = (
+    "reporte",
+    "imagen",
+    "vuelo",
+    "pasajero",
+    "empleado",
+    "equipaje",
+    "torre_control",
+    "aerolinea",
+)
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Builder del pipeline vectorial
+# ─────────────────────────────────────────────────────────────────────────────
 
 def _vector_pipeline(
     query_vector: list[float],
@@ -14,221 +58,341 @@ def _vector_pipeline(
     num_candidates: int,
     filter_query: dict | None,
     index_name: str,
-    collection_fields: list[str],
 ) -> list[dict]:
-    """Arma el pipeline de agregación con $vectorSearch y $project."""
-    vs_stage: dict[str, Any] = {
+
+    vector_stage: dict[str, Any] = {
         "$vectorSearch": {
-            "index":         index_name,
-            "path":          "embedding",
-            "queryVector":   query_vector,
+            "index": index_name,
+            "path": "embedding",
+            "queryVector": query_vector,
             "numCandidates": num_candidates,
-            "limit":         limit,
+            "limit": limit,
         }
     }
+
     if filter_query:
-        vs_stage["$vectorSearch"]["filter"] = filter_query
+        vector_stage["$vectorSearch"]["filter"] = filter_query
 
-    project = {f: 1 for f in collection_fields}
-    project["_id"]   = 0
-    project["score"] = {"$meta": "vectorSearchScore"}
+    return [
+        vector_stage,
+        {
+            "$project": {
+                "_id": 0,
+                "doc_id": 1,
+                "chunk_index": 1,
+                "estrategia_chunking": 1,
+                "chunk_texto": 1,
+                "tipo_fuente": 1,
+                "metadatos": 1,
+                "score": {"$meta": "vectorSearchScore"},
+            }
+        }
+    ]
 
-    return [vs_stage, {"$project": project}]
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Executor interno
+# ─────────────────────────────────────────────────────────────────────────────
+
+def _run_vector_search(
+    query: str,
+    filter_query: dict | None = None,
+    limit: int = 5,
+    num_candidates: int = 60,
+) -> list[dict]:
+    """
+    Ejecuta búsqueda vectorial sobre embeddings_texto.
+    """
+
+    query_vector = embed_text(query)
+
+    pipeline = _vector_pipeline(
+        query_vector=query_vector,
+        limit=limit,
+        num_candidates=num_candidates,
+        filter_query=filter_query,
+        index_name=config.VECTOR_INDEX,
+    )
+
+    return list(config.embeddings_texto.aggregate(pipeline))
 
 
-# ── Búsqueda semántica sobre texto ────────────────────────────────────────────
+# ─────────────────────────────────────────────────────────────────────────────
+# Búsqueda global
+# ─────────────────────────────────────────────────────────────────────────────
 
 def vector_search(
     query: str,
     limit: int = 5,
     num_candidates: int = 60,
 ) -> list[dict]:
-    """Búsqueda vectorial básica sobre textos."""
-    pipeline = _vector_pipeline(
-        query_vector     = embed_text(query),
-        limit            = limit,
-        num_candidates   = num_candidates,
-        filter_query     = None,
-        index_name       = config.VECTOR_INDEX,
-        collection_fields= ["doc_id", "chunk_index", "estrategia_chunking",
-                             "chunk_texto", "metadatos", "tipo_fuente"],
+    """
+    Búsqueda semántica global sobre TODAS las entidades.
+    """
+    return _run_vector_search(
+        query=query,
+        limit=limit,
+        num_candidates=num_candidates,
     )
-    return list(config.embeddings_texto.aggregate(pipeline))
 
 
-# ── Búsqueda híbrida (semántica + filtros) ────────────────────────────────────
+# ─────────────────────────────────────────────────────────────────────────────
+# Búsqueda híbrida
+# ─────────────────────────────────────────────────────────────────────────────
 
 def hybrid_search(
     query: str,
-    strategy: str | None  = None,
-    tipo: str | None       = None,
-    idioma: str | None     = None,
-    prioridad: str | None  = None,
-    limit: int             = 5,
-    num_candidates: int    = 60,
+    strategy: str | None = None,
+    tipo: str | None = None,
+    idioma: str | None = None,
+    prioridad: str | None = None,
+    tipo_fuente: str | None = None,
+    limit: int = 5,
+    num_candidates: int = 60,
 ) -> list[dict]:
-    """Búsqueda vectorial con filtros dinámicos."""
-    filter_query: dict = {}
+    """
+    Búsqueda vectorial con filtros dinámicos.
+    """
+
+    filters: dict[str, Any] = {}
+
     if strategy:
-        filter_query["estrategia_chunking"] = strategy
+        filters["estrategia_chunking"] = strategy
+
     if tipo:
-        filter_query["metadatos.tipo"] = tipo
+        filters["metadatos.tipo"] = tipo
+
     if idioma:
-        filter_query["metadatos.idioma"] = idioma
+        filters["metadatos.idioma"] = idioma
+
     if prioridad:
-        filter_query["metadatos.prioridad"] = prioridad
+        filters["metadatos.prioridad"] = prioridad
 
-    pipeline = _vector_pipeline(
-        query_vector     = embed_text(query),
-        limit            = limit,
-        num_candidates   = num_candidates,
-        filter_query     = filter_query or None,
-        index_name       = config.VECTOR_INDEX,
-        collection_fields= ["doc_id", "chunk_index", "estrategia_chunking",
-                             "chunk_texto", "metadatos", "tipo_fuente"],
+    if tipo_fuente:
+        filters["tipo_fuente"] = tipo_fuente
+
+    return _run_vector_search(
+        query=query,
+        filter_query=filters or None,
+        limit=limit,
+        num_candidates=num_candidates,
     )
-    return list(config.embeddings_texto.aggregate(pipeline))
 
 
-# ── Comparación de estrategias ────────────────────────────────────────────────
+# ─────────────────────────────────────────────────────────────────────────────
+# Búsqueda por entidad
+# ─────────────────────────────────────────────────────────────────────────────
 
-def compare_strategies(
+def entity_search(
     query: str,
-    limit: int = 3,
-    num_candidates: int = 50,
-) -> dict[str, list[dict]]:
-    """Ejecuta la misma consulta con cada estrategia de chunking."""
-    from chunking import STRATEGIES
-    return {
-        s: hybrid_search(query, strategy=s, limit=limit, num_candidates=num_candidates)
-        for s in STRATEGIES
+    entidad: str,
+    limit: int = 5,
+    num_candidates: int = 60,
+    extra_filters: dict | None = None,
+) -> list[dict]:
+    """
+    Busca únicamente dentro de una entidad.
+    """
+
+    tipo = (
+        entidad.rstrip("s")
+        if entidad.endswith("s") and entidad != "torre_control"
+        else entidad
+    )
+
+    filter_query: dict[str, Any] = {
+        "tipo_fuente": tipo
     }
 
+    if extra_filters:
+        filter_query.update(extra_filters)
 
-# ── Búsqueda de imágenes con MiniLM (texto → texto de imagen) ─────────────────
+    return _run_vector_search(
+        query=query,
+        filter_query=filter_query,
+        limit=limit,
+        num_candidates=num_candidates,
+    )
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Búsqueda de imágenes
+# ─────────────────────────────────────────────────────────────────────────────
 
 def image_search(
     query: str,
     limit: int = 5,
     num_candidates: int = 50,
 ) -> list[dict]:
-    """Búsqueda de imágenes por descripción textual usando MiniLM."""
-    filter_query = {"tipo_fuente": {"$eq": "imagen"}}
-    
-    pipeline = _vector_pipeline(
-        query_vector     = embed_text(query),
-        limit            = limit,
-        num_candidates   = num_candidates,
-        filter_query     = filter_query,
-        index_name       = config.VECTOR_INDEX,
-        collection_fields= ["doc_id", "chunk_texto", "metadatos", "tipo_fuente"],
+    """
+    Busca imágenes usando descripción textual.
+    """
+
+    return _run_vector_search(
+        query=query,
+        filter_query={"tipo_fuente": "imagen"},
+        limit=limit,
+        num_candidates=num_candidates,
     )
-    return list(config.embeddings_texto.aggregate(pipeline))
 
 
-# ── NUEVO: Búsqueda multimodal con CLIP (texto → imagen real) ─────────────────
+# ─────────────────────────────────────────────────────────────────────────────
+# Comparar estrategias
+# ─────────────────────────────────────────────────────────────────────────────
+
+def compare_strategies(
+    query: str,
+    limit: int = 3,
+    num_candidates: int = 50,
+    tipo_fuente: str | None = None,
+) -> dict[str, list[dict]]:
+    """
+    Ejecuta la consulta usando todas las estrategias de chunking.
+    """
+
+    from chunking import STRATEGIES
+
+    resultados = {}
+
+    for strategy in STRATEGIES:
+
+        filters: dict[str, Any] = {
+            "estrategia_chunking": strategy
+        }
+
+        if tipo_fuente:
+            filters["tipo_fuente"] = tipo_fuente
+
+        resultados[strategy] = _run_vector_search(
+            query=query,
+            filter_query=filters,
+            limit=limit,
+            num_candidates=num_candidates,
+        )
+
+    return resultados
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Multimodal
+# ─────────────────────────────────────────────────────────────────────────────
 
 def multimodal_search(
     query: str,
-    limit: int = 5,
-    num_candidates: int = 50,
-    tipo_imagen: str | None = None,
-) -> list[dict]:
-    """
-    Búsqueda multimodal usando CLIP (texto → embedding CLIP → imágenes).
-    Esto permite encontrar imágenes por su contenido visual, no solo por texto.
-    """
-    filter_query = {"tipo_fuente": {"$eq": "imagen"}}
-    if tipo_imagen:
-        filter_query["metadatos.tipo_imagen"] = tipo_imagen
-    
-    # Usar CLIP para embedding de texto (512 dimensiones)
-    query_vector = embed_text_clip(query)
-    
-    # Necesitaríamos un índice vectorial separado para CLIP (512 dims)
-    # Por ahora, esto es un placeholder - requeriría colección separada
-    pipeline = _vector_pipeline(
-        query_vector     = query_vector,
-        limit            = limit,
-        num_candidates   = num_candidates,
-        filter_query     = filter_query,
-        index_name       = "vector_index_clip",  # Índice separado para CLIP
-        collection_fields= ["doc_id", "chunk_texto", "metadatos", "tipo_fuente"],
-    )
-    # Nota: Esto requiere una colección embeddings_imagenes separada
-    return []
-
-
-# ── NUEVO: Consulta híbrida (texto + imágenes) ────────────────────────────────
-
-def hybrid_multimodal_search(
-    query: str,
     limit_texto: int = 5,
     limit_imagenes: int = 3,
-    tipo_texto: str | None = None,
-    tipo_imagen: str | None = None,
 ) -> dict[str, list[dict]]:
     """
-    Realiza búsqueda paralela en textos e imágenes y combina resultados.
-    Similar a la consulta híbrida del proyecto relacional.
+    Combina resultados de texto e imágenes.
     """
-    # Buscar en textos
-    filter_texto = {}
-    if tipo_texto:
-        filter_texto["metadatos.tipo"] = tipo_texto
-    
-    pipeline_texto = _vector_pipeline(
-        query_vector     = embed_text(query),
-        limit            = limit_texto,
-        num_candidates   = limit_texto * 10,
-        filter_query     = filter_texto or None,
-        index_name       = config.VECTOR_INDEX,
-        collection_fields= ["doc_id", "chunk_index", "estrategia_chunking",
-                             "chunk_texto", "metadatos", "tipo_fuente"],
+
+    textos = _run_vector_search(
+        query=query,
+        filter_query={"tipo_fuente": {"$ne": "imagen"}},
+        limit=limit_texto,
+        num_candidates=limit_texto * 12,
     )
-    resultados_texto = list(config.embeddings_texto.aggregate(pipeline_texto))
-    
-    # Buscar en imágenes
-    filter_imagen = {"tipo_fuente": {"$eq": "imagen"}}
-    if tipo_imagen:
-        filter_imagen["metadatos.tipo_imagen"] = tipo_imagen
-    
-    pipeline_imagen = _vector_pipeline(
-        query_vector     = embed_text(query),
-        limit            = limit_imagenes,
-        num_candidates   = limit_imagenes * 10,
-        filter_query     = filter_imagen,
-        index_name       = config.VECTOR_INDEX,
-        collection_fields= ["doc_id", "chunk_texto", "metadatos", "tipo_fuente"],
+
+    imagenes = image_search(
+        query=query,
+        limit=limit_imagenes,
+        num_candidates=limit_imagenes * 12,
     )
-    resultados_imagen = list(config.embeddings_texto.aggregate(pipeline_imagen))
-    
-    # Combinar y ordenar por score
-    todos = resultados_texto + resultados_imagen
-    todos.sort(key=lambda x: x.get("score", 0), reverse=True)
-    
+
+    combinados = sorted(
+        textos + imagenes,
+        key=lambda x: x.get("score", 0),
+        reverse=True,
+    )
+
     return {
-        "textos": resultados_texto,
-        "imagenes": resultados_imagen,
-        "combinados": todos,
+        "textos": textos,
+        "imagenes": imagenes,
+        "combinados": combinados,
     }
 
 
-# ── NUEVO: Estadísticas y diagnóstico ─────────────────────────────────────────
+# ─────────────────────────────────────────────────────────────────────────────
+# Estadísticas
+# ─────────────────────────────────────────────────────────────────────────────
 
 def get_stats() -> dict:
-    """Retorna estadísticas de la colección de embeddings."""
-    total_textos = config.embeddings_texto.count_documents({"tipo_fuente": "reporte"})
-    total_imagenes = config.embeddings_texto.count_documents({"tipo_fuente": "imagen"})
-    imagenes_con_url = config.embeddings_texto.count_documents({
-        "tipo_fuente": "imagen",
-        "metadatos.url": {"$exists": True, "$ne": None}
-    })
-    
+    """
+    Retorna estadísticas del corpus vectorial.
+    """
+
+    pipeline = [
+        {
+            "$group": {
+                "_id": "$tipo_fuente",
+                "count": {"$sum": 1}
+            }
+        },
+        {
+            "$sort": {"_id": 1}
+        }
+    ]
+
+    rows = list(config.embeddings_texto.aggregate(pipeline))
+
     return {
-        "total_documentos": config.embeddings_texto.count_documents({}),
-        "textos": total_textos,
-        "imagenes": total_imagenes,
-        "imagenes_con_url": imagenes_con_url,
-        "imagenes_sin_url": total_imagenes - imagenes_con_url,
+        "total": config.embeddings_texto.count_documents({}),
+        "por_tipo": {
+            r["_id"]: r["count"]
+            for r in rows
+        }
     }
+
+
+def image_to_image_search(
+    image_path: str,
+    limit: int = 5,
+    num_candidates: int = 50,
+) -> list[dict]:
+    """
+    Busca imágenes similares usando una imagen de entrada.
+    """
+    from ingesta.embeddings import embed_image_clip
+    from PIL import Image
+    
+    # Cargar y embedizar la imagen
+    image = Image.open(image_path)
+    query_vector = embed_image_clip(image)
+    
+    # Pipeline de búsqueda vectorial con lookup
+    pipeline = [
+        {
+            "$vectorSearch": {
+                "index": config.VECTOR_INDEX_IMAGE,  # ← CORREGIDO
+                "path": "embedding",
+                "queryVector": query_vector,
+                "numCandidates": num_candidates,
+                "limit": limit,
+            }
+        },
+        {
+            "$lookup": {
+                "from": "imagenes",
+                "localField": "img_id",
+                "foreignField": "img_id",
+                "as": "imagen_info"
+            }
+        },
+        {
+            "$unwind": "$imagen_info"
+        },
+        {
+            "$project": {
+                "_id": 0,
+                "img_id": 1,
+                "filename": 1,
+                "score": {"$meta": "vectorSearchScore"},
+                "url": "$imagen_info.url",
+                "descripcion": "$imagen_info.descripcion",
+                "tipo_imagen": "$imagen_info.tipo_imagen",
+                "aeropuerto": "$imagen_info.aeropuerto",
+            }
+        }
+    ]
+    
+    return list(config.embeddings_imagen.aggregate(pipeline))

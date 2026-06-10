@@ -78,13 +78,13 @@ def cargar_reportes(
         deleted = config.embeddings_texto.delete_many({"tipo_fuente": "reporte"})
         print(f"🗑️  {deleted.deleted_count} chunks anteriores borrados.")
 
-    # Singleton: no recarga pesos en cada iteración
     semantic_model = get_minilm()
     stats = {"reportes": 0, "chunks_total": 0}
+    textos_insertados = set()  # ← Prevenir duplicados
 
     for doc in docs:
         doc_id = _upsert_reporte(doc)
-        texto  = doc.get("contenido_texto", "").strip()
+        texto = doc.get("contenido_texto", "").strip()
         if not texto:
             continue
         stats["reportes"] += 1
@@ -95,21 +95,40 @@ def cargar_reportes(
             if not chunks:
                 continue
 
-            embeddings  = embed_texts_batch(chunks)
-            chunk_docs  = _build_chunk_docs(doc_id, doc, chunks, strategy, embeddings)
+            chunks_nuevos = []
+            for chunk in chunks:
+                clave = (chunk, "reporte", strategy)
+                if clave in textos_insertados:
+                    continue
+                
+                # Verificar si ya existe en DB
+                existente = config.embeddings_texto.find_one({
+                    "chunk_texto": chunk,
+                    "tipo_fuente": "reporte",
+                    "estrategia_chunking": strategy
+                })
+                
+                if not existente:
+                    chunks_nuevos.append(chunk)
+                    textos_insertados.add(clave)
+
+            if not chunks_nuevos:
+                continue
+
+            embeddings = embed_texts_batch(chunks_nuevos)
+            chunk_docs = _build_chunk_docs(doc_id, doc, chunks_nuevos, strategy, embeddings)
             config.embeddings_texto.insert_many(chunk_docs)
             stats["chunks_total"] += len(chunk_docs)
-            print(f"  ✅ [{strategy:9s}] '{doc['titulo'][:48]}' → {len(chunk_docs)} chunks")
+            print(f"  ✅ [{strategy:9s}] '{doc['titulo'][:48]}' → {len(chunks_nuevos)} chunks nuevos")
 
     print(f"\n📊 Reportes: {stats['reportes']}  |  Chunks totales: {stats['chunks_total']}")
     return stats
-
 
 # ── Ingesta de imágenes ───────────────────────────────────────────────────────
 
 def cargar_imagenes(file_path: str | Path, clear_prev: bool = False) -> dict:
     """
-    Ingesta metadatos de imágenes usando embeddings MiniLM (384d) sobre la
+    Ingesta metadatos de imágenes usando embeddings MiniLM (512d) sobre la
     descripción textual. Se almacena en embeddings_texto con tipo_fuente='imagen'
     para usar el mismo índice vectorial que los reportes (limitación M0 de Atlas).
     """

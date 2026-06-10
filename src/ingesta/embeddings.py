@@ -48,7 +48,7 @@ def get_clip():
 
 def embed_text(text: str) -> List[float]:
     """
-    Embedding de texto con MiniLM. Dimensión: 384.
+    Embedding de texto con MiniLM. Dimensión: 512.
     Usado para chunking de reportes y búsqueda semántica.
     """
     vec = get_minilm().encode(text, show_progress_bar=False)

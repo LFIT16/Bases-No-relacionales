@@ -1,5 +1,6 @@
 const API = 'http://localhost:8000';
 
+const STATIC_URL = 'http://localhost:8000/static';  
 const TIPO_ICONS = {
   biometria: '👤', documento_identidad: '🪪', equipaje: '🧳',
   incidente: '⚠️', infraestructura: '🏗️'
@@ -191,3 +192,183 @@ document.getElementById('img-query').addEventListener('keydown', e => { if (e.ke
 
 // Inicializar
 checkHealth();
+
+async function sendMultimodal() {
+
+  const q = document.getElementById('multi-query').value.trim();
+
+  if (!q) return;
+
+  document.getElementById('multi-loader').classList.add('active');
+  document.getElementById('multi-result').innerHTML = '';
+
+  try {
+
+    const r = await fetch(API + '/search/multimodal', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        query: q,
+        limit_texto: parseInt(document.getElementById('multi-limit-text').value),
+        limit_imagenes: parseInt(document.getElementById('multi-limit-img').value)
+      })
+    });
+
+    const d = await r.json();
+
+    // TEXTOS
+    const textosHTML = renderChunks(d.textos || []);
+
+    // IMÁGENES
+    const imagenesHTML = (d.imagenes || []).map(item => {
+
+      const tipo = item.metadatos?.tipo_imagen || '';
+      const url  = item.metadatos?.url || '';
+
+      return `
+        <div class="img-card">
+
+          ${
+            url
+              ? `<img src="${url}"
+                    style="width:100%;height:160px;object-fit:cover;border-radius:8px;margin-bottom:10px;">`
+              : `<div class="img-icon">${TIPO_ICONS[tipo] || '📁'}</div>`
+          }
+
+          <div class="img-tipo">${tipo}</div>
+
+          <div class="img-desc">
+            ${item.chunk_texto.substring(0,100)}
+          </div>
+
+          <div class="img-score">
+            score: ${item.score?.toFixed(3) || 'N/A'}
+          </div>
+
+        </div>
+      `;
+
+    }).join('');
+
+    document.getElementById('multi-result').innerHTML = `
+
+      <div class="card">
+        <h2>📄 Resultados texto</h2>
+        ${textosHTML}
+      </div>
+
+      <div class="card">
+        <h2>🖼 Resultados imágenes</h2>
+        <div class="imgs-grid">
+          ${imagenesHTML || '<p>Sin imágenes</p>'}
+        </div>
+      </div>
+
+    `;
+
+  } catch (e) {
+
+    document.getElementById('multi-result').innerHTML = `
+      <div class="error">
+        Error: ${e.message}
+      </div>
+    `;
+
+  }
+
+  document.getElementById('multi-loader').classList.remove('active');
+}
+
+async function sendImageToImage() {
+
+  const fileInput = document.getElementById('img2img-file');
+
+  if (!fileInput.files.length) {
+    alert('Selecciona una imagen');
+    return;
+  }
+
+  const formData = new FormData();
+  formData.append('file', fileInput.files[0]);
+
+  document.getElementById('img2img-loader').classList.add('active');
+  document.getElementById('img2img-result').innerHTML = '';
+
+  try {
+
+    const r = await fetch(API + '/search/image-to-image', {
+      method: 'POST',
+      body: formData
+    });
+
+    const d = await r.json();
+
+    if (!d.resultados || d.resultados.length === 0) {
+      document.getElementById('img2img-result').innerHTML = `
+        <div class="card">
+          <h2>🖼 Resultados de búsqueda</h2>
+          <p>No se encontraron imágenes similares</p>
+        </div>
+      `;
+      return;
+    }
+
+    const placeholderBase64 = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='160' viewBox='0 0 200 160'%3E%3Crect width='200' height='160' fill='%23e0e0e0'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23999' font-size='24'%3E🖼%3C/text%3E%3C/svg%3E";
+
+    const items = d.resultados.map(item => {
+      const filename = item.filename || '';
+      const descripcion = item.descripcion || 'Sin descripción';
+      const score = item.score || 0;
+      const tipo_imagen = item.tipo_imagen || 'General';
+      
+      const safeSubstring = (str, maxLen) => {
+        if (!str || typeof str !== 'string') return '';
+        return str.length > maxLen ? str.substring(0, maxLen) + '...' : str;
+      };
+
+      // Usar STATIC_URL en lugar de URL relativa
+      const imgUrl = `${STATIC_URL}/images/${encodeURIComponent(filename)}`;
+      
+      return `
+        <div class="img-card">
+          <img src="${imgUrl}" 
+               style="width:100%; height:160px; object-fit:cover; border-radius:8px; margin-bottom:10px; background:#f0f0f0;"
+               onerror="this.src='${placeholderBase64}'; this.onerror=null;">
+          
+          <div class="img-tipo">${safeSubstring(tipo_imagen, 30)}</div>
+          
+          <div class="img-desc">
+            ${safeSubstring(descripcion, 100)}
+          </div>
+          
+          <div class="img-score">
+            🔍 Similaridad: ${(score * 100).toFixed(1)}%
+          </div>
+          
+          ${filename ? `<div class="img-filename">📄 ${safeSubstring(filename, 40)}</div>` : ''}
+        </div>
+      `;
+    }).join('');
+
+    document.getElementById('img2img-result').innerHTML = `
+      <div class="card">
+        <h2>🖼 Imágenes similares encontradas (${d.total || d.resultados.length})</h2>
+        <div class="imgs-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px;">
+          ${items}
+        </div>
+      </div>
+    `;
+
+  } catch (e) {
+    console.error('Error en image-to-image:', e);
+    document.getElementById('img2img-result').innerHTML = `
+      <div class="error" style="padding: 20px; background: #ffebee; border-radius: 8px; color: #c62828;">
+        ❌ Error: ${e.message}
+      </div>
+    `;
+  }
+
+  document.getElementById('img2img-loader').classList.remove('active');
+}

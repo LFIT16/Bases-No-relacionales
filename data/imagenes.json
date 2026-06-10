@@ -8,7 +8,12 @@
     "aeropuerto": "BOG",
     "fecha": "2024-01-01",
     "formato": "PNG",
-    "tags": ["personal", "seguridad", "acceso", "identificacion"],
+    "tags": [
+      "personal",
+      "seguridad",
+      "acceso",
+      "identificacion"
+    ],
     "fuente": "sistema_aeroportuario"
   },
   {
@@ -20,7 +25,12 @@
     "aeropuerto": "MDE",
     "fecha": "2024-02-02",
     "formato": "WEBP",
-    "tags": ["personal", "seguridad", "acceso", "identificacion"],
+    "tags": [
+      "personal",
+      "seguridad",
+      "acceso",
+      "identificacion"
+    ],
     "fuente": "sistema_aeroportuario"
   },
   {
@@ -32,7 +42,12 @@
     "aeropuerto": "CLO",
     "fecha": "2024-03-03",
     "formato": "PNG",
-    "tags": ["personal", "seguridad", "acceso", "identificacion"],
+    "tags": [
+      "personal",
+      "seguridad",
+      "acceso",
+      "identificacion"
+    ],
     "fuente": "sistema_aeroportuario"
   },
   {
@@ -44,7 +59,12 @@
     "aeropuerto": "CTG",
     "fecha": "2024-04-04",
     "formato": "JPEG",
-    "tags": ["personal", "seguridad", "acceso", "identificacion"],
+    "tags": [
+      "personal",
+      "seguridad",
+      "acceso",
+      "identificacion"
+    ],
     "fuente": "sistema_aeroportuario"
   },
   {
@@ -56,7 +76,12 @@
     "aeropuerto": "BAQ",
     "fecha": "2024-05-05",
     "formato": "JPEG",
-    "tags": ["personal", "seguridad", "acceso", "identificacion"],
+    "tags": [
+      "personal",
+      "seguridad",
+      "acceso",
+      "identificacion"
+    ],
     "fuente": "sistema_aeroportuario"
   },
   {
@@ -68,7 +93,12 @@
     "aeropuerto": "PTY",
     "fecha": "2024-06-06",
     "formato": "JPEG",
-    "tags": ["personal", "seguridad", "acceso", "identificacion"],
+    "tags": [
+      "personal",
+      "seguridad",
+      "acceso",
+      "identificacion"
+    ],
     "fuente": "sistema_aeroportuario"
   },
   {
@@ -80,7 +110,12 @@
     "aeropuerto": "LIM",
     "fecha": "2024-07-07",
     "formato": "WEBP",
-    "tags": ["personal", "seguridad", "acceso", "identificacion"],
+    "tags": [
+      "personal",
+      "seguridad",
+      "acceso",
+      "identificacion"
+    ],
     "fuente": "sistema_aeroportuario"
   },
   {
@@ -92,7 +127,12 @@
     "aeropuerto": "GRU",
     "fecha": "2024-08-08",
     "formato": "AVIF",
-    "tags": ["personal", "seguridad", "acceso", "identificacion"],
+    "tags": [
+      "personal",
+      "seguridad",
+      "acceso",
+      "identificacion"
+    ],
     "fuente": "sistema_aeroportuario"
   },
   {
@@ -104,7 +144,12 @@
     "aeropuerto": "SCL",
     "fecha": "2024-09-09",
     "formato": "AVIF",
-    "tags": ["personal", "seguridad", "acceso", "identificacion"],
+    "tags": [
+      "personal",
+      "seguridad",
+      "acceso",
+      "identificacion"
+    ],
     "fuente": "sistema_aeroportuario"
   },
   {
@@ -116,117 +161,172 @@
     "aeropuerto": "MIA",
     "fecha": "2024-10-10",
     "formato": "JPEG",
-    "tags": ["personal", "seguridad", "acceso", "identificacion"],
+    "tags": [
+      "personal",
+      "seguridad",
+      "acceso",
+      "identificacion"
+    ],
     "fuente": "sistema_aeroportuario"
   },
   {
     "img_id": "IMG_011",
-    "filename": "placeholder.jpg",
+    "filename": "IMG_011_documento_identidad.jpg",
     "tipo_imagen": "documento_identidad",
     "descripcion": "Cédula de ciudadanía colombiana escaneada para verificación de identidad",
     "aeropuerto": "BOG",
     "fecha": "2024-11-11",
     "formato": "JPEG",
-    "tags": ["pasajero", "documento", "verificacion", "boarding"],
+    "tags": [
+      "pasajero",
+      "documento",
+      "verificacion",
+      "boarding"
+    ],
     "fuente": "sistema_aeroportuario"
   },
   {
     "img_id": "IMG_012",
-    "filename": "placeholder.jpg",
+    "filename": "IMG_012_documento_identidad.jpg",
     "tipo_imagen": "documento_identidad",
     "descripcion": "Pasaporte internacional con datos de viajero frecuente en vuelo internacional",
     "aeropuerto": "MDE",
     "fecha": "2024-12-12",
     "formato": "JPEG",
-    "tags": ["pasajero", "documento", "verificacion", "boarding"],
+    "tags": [
+      "pasajero",
+      "documento",
+      "verificacion",
+      "boarding"
+    ],
     "fuente": "sistema_aeroportuario"
   },
   {
     "img_id": "IMG_013",
-    "filename": "placeholder.jpg",
+    "filename": "IMG_013_documento_identidad.jpg",
     "tipo_imagen": "documento_identidad",
     "descripcion": "Tarjeta de embarque con código QR para vuelo doméstico",
     "aeropuerto": "CLO",
     "fecha": "2024-01-13",
     "formato": "JPEG",
-    "tags": ["pasajero", "documento", "verificacion", "boarding"],
+    "tags": [
+      "pasajero",
+      "documento",
+      "verificacion",
+      "boarding"
+    ],
     "fuente": "sistema_aeroportuario"
   },
   {
     "img_id": "IMG_014",
-    "filename": "placeholder.jpg",
+    "filename": "IMG_014_documento_identidad.jpg",
     "tipo_imagen": "documento_identidad",
     "descripcion": "Documento de identidad extranjero de pasajero en tránsito internacional",
     "aeropuerto": "CTG",
     "fecha": "2024-02-14",
     "formato": "JPEG",
-    "tags": ["pasajero", "documento", "verificacion", "boarding"],
+    "tags": [
+      "pasajero",
+      "documento",
+      "verificacion",
+      "boarding"
+    ],
     "fuente": "sistema_aeroportuario"
   },
   {
     "img_id": "IMG_015",
-    "filename": "placeholder.jpg",
+    "filename": "IMG_015_documento_identidad.jpg",
     "tipo_imagen": "documento_identidad",
     "descripcion": "Visa de turista con sello de entrada vigente para verificación migratoria",
     "aeropuerto": "BAQ",
     "fecha": "2024-03-15",
     "formato": "JPEG",
-    "tags": ["pasajero", "documento", "verificacion", "boarding"],
+    "tags": [
+      "pasajero",
+      "documento",
+      "verificacion",
+      "boarding"
+    ],
     "fuente": "sistema_aeroportuario"
   },
   {
     "img_id": "IMG_016",
-    "filename": "placeholder.jpg",
+    "filename": "IMG_016_documento_identidad.jpg",
     "tipo_imagen": "documento_identidad",
     "descripcion": "Cédula de extranjería para pasajero residente en Colombia",
     "aeropuerto": "PTY",
     "fecha": "2024-04-16",
     "formato": "JPEG",
-    "tags": ["pasajero", "documento", "verificacion", "boarding"],
+    "tags": [
+      "pasajero",
+      "documento",
+      "verificacion",
+      "boarding"
+    ],
     "fuente": "sistema_aeroportuario"
   },
   {
     "img_id": "IMG_017",
-    "filename": "placeholder.jpg",
+    "filename": "IMG_017_documento_identidad.jpg",
     "tipo_imagen": "documento_identidad",
     "descripcion": "Pasaporte con visas múltiples de pasajero en vuelo intercontinental",
     "aeropuerto": "LIM",
     "fecha": "2024-05-17",
     "formato": "JPEG",
-    "tags": ["pasajero", "documento", "verificacion", "boarding"],
+    "tags": [
+      "pasajero",
+      "documento",
+      "verificacion",
+      "boarding"
+    ],
     "fuente": "sistema_aeroportuario"
   },
   {
     "img_id": "IMG_018",
-    "filename": "placeholder.jpg",
+    "filename": "IMG_018_documento_identidad.jpg",
     "tipo_imagen": "documento_identidad",
     "descripcion": "Documento de menores no acompañados para proceso de embarque especial",
     "aeropuerto": "GRU",
     "fecha": "2024-06-18",
     "formato": "JPEG",
-    "tags": ["pasajero", "documento", "verificacion", "boarding"],
+    "tags": [
+      "pasajero",
+      "documento",
+      "verificacion",
+      "boarding"
+    ],
     "fuente": "sistema_aeroportuario"
   },
   {
     "img_id": "IMG_019",
-    "filename": "placeholder.jpg",
+    "filename": "IMG_019_documento_identidad.jpg",
     "tipo_imagen": "documento_identidad",
     "descripcion": "Tarjeta de residente permanente escaneada en control de inmigración",
     "aeropuerto": "SCL",
     "fecha": "2024-07-19",
     "formato": "JPEG",
-    "tags": ["pasajero", "documento", "verificacion", "boarding"],
+    "tags": [
+      "pasajero",
+      "documento",
+      "verificacion",
+      "boarding"
+    ],
     "fuente": "sistema_aeroportuario"
   },
   {
     "img_id": "IMG_020",
-    "filename": "placeholder.jpg",
+    "filename": "IMG_020_documento_identidad.jpg",
     "tipo_imagen": "documento_identidad",
     "descripcion": "Licencia de conducción como documento alterno en proceso de facturación",
     "aeropuerto": "MIA",
     "fecha": "2024-08-20",
     "formato": "JPEG",
-    "tags": ["pasajero", "documento", "verificacion", "boarding"],
+    "tags": [
+      "pasajero",
+      "documento",
+      "verificacion",
+      "boarding"
+    ],
     "fuente": "sistema_aeroportuario"
   },
   {
@@ -238,7 +338,12 @@
     "aeropuerto": "BOG",
     "fecha": "2024-09-21",
     "formato": "WEBP",
-    "tags": ["maleta", "trazabilidad", "bodega", "revision"],
+    "tags": [
+      "maleta",
+      "trazabilidad",
+      "bodega",
+      "revision"
+    ],
     "fuente": "sistema_aeroportuario"
   },
   {
@@ -250,18 +355,28 @@
     "aeropuerto": "MDE",
     "fecha": "2024-10-22",
     "formato": "WEBP",
-    "tags": ["maleta", "trazabilidad", "bodega", "revision"],
+    "tags": [
+      "maleta",
+      "trazabilidad",
+      "bodega",
+      "revision"
+    ],
     "fuente": "sistema_aeroportuario"
   },
   {
     "img_id": "IMG_023",
-    "filename": "placeholder.jpg",
+    "filename": "IMG_023_equipaje.jpg",
     "tipo_imagen": "equipaje",
     "descripcion": "Bolso de mano con ítem sospechoso detectado por scanner de rayos X",
     "aeropuerto": "CLO",
     "fecha": "2024-11-23",
     "formato": "JPEG",
-    "tags": ["maleta", "trazabilidad", "bodega", "revision"],
+    "tags": [
+      "maleta",
+      "trazabilidad",
+      "bodega",
+      "revision"
+    ],
     "fuente": "sistema_aeroportuario"
   },
   {
@@ -273,29 +388,44 @@
     "aeropuerto": "CTG",
     "fecha": "2024-12-24",
     "formato": "JPEG",
-    "tags": ["maleta", "trazabilidad", "bodega", "revision"],
+    "tags": [
+      "maleta",
+      "trazabilidad",
+      "bodega",
+      "revision"
+    ],
     "fuente": "sistema_aeroportuario"
   },
   {
     "img_id": "IMG_025",
-    "filename": "placeholder.jpg",
+    "filename": "IMG_025_equipaje.jpg",
     "tipo_imagen": "equipaje",
     "descripcion": "Equipaje etiquetado como frágil en área de carga especial",
     "aeropuerto": "BAQ",
     "fecha": "2024-01-25",
     "formato": "JPEG",
-    "tags": ["maleta", "trazabilidad", "bodega", "revision"],
+    "tags": [
+      "maleta",
+      "trazabilidad",
+      "bodega",
+      "revision"
+    ],
     "fuente": "sistema_aeroportuario"
   },
   {
     "img_id": "IMG_026",
-    "filename": "placeholder.jpg",
+    "filename": "IMG_026_equipaje.jpg",
     "tipo_imagen": "equipaje",
     "descripcion": "Bolsa de golf embalada para carga en bodega de aeronave",
     "aeropuerto": "PTY",
     "fecha": "2024-02-26",
     "formato": "JPEG",
-    "tags": ["maleta", "trazabilidad", "bodega", "revision"],
+    "tags": [
+      "maleta",
+      "trazabilidad",
+      "bodega",
+      "revision"
+    ],
     "fuente": "sistema_aeroportuario"
   },
   {
@@ -307,260 +437,380 @@
     "aeropuerto": "LIM",
     "fecha": "2024-03-27",
     "formato": "WEBP",
-    "tags": ["maleta", "trazabilidad", "bodega", "revision"],
+    "tags": [
+      "maleta",
+      "trazabilidad",
+      "bodega",
+      "revision"
+    ],
     "fuente": "sistema_aeroportuario"
   },
   {
     "img_id": "IMG_028",
-    "filename": "placeholder.jpg",
+    "filename": "IMG_028_equipaje.jpg",
     "tipo_imagen": "equipaje",
     "descripcion": "Caja de carga especial con etiqueta de material biológico certificado",
     "aeropuerto": "GRU",
     "fecha": "2024-04-28",
     "formato": "JPEG",
-    "tags": ["maleta", "trazabilidad", "bodega", "revision"],
+    "tags": [
+      "maleta",
+      "trazabilidad",
+      "bodega",
+      "revision"
+    ],
     "fuente": "sistema_aeroportuario"
   },
   {
     "img_id": "IMG_029",
-    "filename": "placeholder.jpg",
+    "filename": "IMG_029_equipaje.jpg",
     "tipo_imagen": "equipaje",
     "descripcion": "Conjunto de maletas de pasajero con conexión en tránsito interaerolíneas",
     "aeropuerto": "SCL",
     "fecha": "2024-05-01",
     "formato": "JPEG",
-    "tags": ["maleta", "trazabilidad", "bodega", "revision"],
+    "tags": [
+      "maleta",
+      "trazabilidad",
+      "bodega",
+      "revision"
+    ],
     "fuente": "sistema_aeroportuario"
   },
   {
     "img_id": "IMG_030",
-    "filename": "placeholder.jpg",
+    "filename": "IMG_030_equipaje.jpg",
     "tipo_imagen": "equipaje",
     "descripcion": "Equipaje de mascota en transportín aprobado para cabina de pasajeros",
     "aeropuerto": "MIA",
     "fecha": "2024-06-02",
     "formato": "JPEG",
-    "tags": ["maleta", "trazabilidad", "bodega", "revision"],
+    "tags": [
+      "maleta",
+      "trazabilidad",
+      "bodega",
+      "revision"
+    ],
     "fuente": "sistema_aeroportuario"
   },
   {
     "img_id": "IMG_031",
-    "filename": "placeholder.jpg",
+    "filename": "IMG_031_incidente.jpg",
     "tipo_imagen": "incidente",
     "descripcion": "Fotografía de colisión menor entre vehículo de rampa y escalerilla en pista",
     "aeropuerto": "BOG",
     "fecha": "2024-07-03",
     "formato": "JPEG",
-    "tags": ["pista", "rampa", "emergencia", "reporte"],
+    "tags": [
+      "pista",
+      "rampa",
+      "emergencia",
+      "reporte"
+    ],
     "fuente": "sistema_aeroportuario"
   },
   {
     "img_id": "IMG_032",
-    "filename": "placeholder.jpg",
+    "filename": "IMG_032_incidente.jpg",
     "tipo_imagen": "incidente",
     "descripcion": "Imagen de derrame de combustible contenido cerca de puerta de embarque C7",
     "aeropuerto": "MDE",
     "fecha": "2024-08-04",
     "formato": "JPEG",
-    "tags": ["pista", "rampa", "emergencia", "reporte"],
+    "tags": [
+      "pista",
+      "rampa",
+      "emergencia",
+      "reporte"
+    ],
     "fuente": "sistema_aeroportuario"
   },
   {
     "img_id": "IMG_033",
-    "filename": "placeholder.jpg",
+    "filename": "IMG_033_incidente.jpg",
     "tipo_imagen": "incidente",
     "descripcion": "Foto de aeronave con daño en tren de aterrizaje tras aterrizaje forzoso",
     "aeropuerto": "CLO",
     "fecha": "2024-09-05",
     "formato": "JPEG",
-    "tags": ["pista", "rampa", "emergencia", "reporte"],
+    "tags": [
+      "pista",
+      "rampa",
+      "emergencia",
+      "reporte"
+    ],
     "fuente": "sistema_aeroportuario"
   },
   {
     "img_id": "IMG_034",
-    "filename": "placeholder.jpg",
+    "filename": "IMG_034_incidente.jpg",
     "tipo_imagen": "incidente",
     "descripcion": "Imagen de pájaro impactado en motor de aeronave durante despegue abortado",
     "aeropuerto": "CTG",
     "fecha": "2024-10-06",
     "formato": "JPEG",
-    "tags": ["pista", "rampa", "emergencia", "reporte"],
+    "tags": [
+      "pista",
+      "rampa",
+      "emergencia",
+      "reporte"
+    ],
     "fuente": "sistema_aeroportuario"
   },
   {
     "img_id": "IMG_035",
-    "filename": "placeholder.jpg",
+    "filename": "IMG_035_incidente.jpg",
     "tipo_imagen": "incidente",
     "descripcion": "Fotografía de incendio menor en transformador eléctrico de apron norte",
     "aeropuerto": "BAQ",
     "fecha": "2024-11-07",
     "formato": "JPEG",
-    "tags": ["pista", "rampa", "emergencia", "reporte"],
+    "tags": [
+      "pista",
+      "rampa",
+      "emergencia",
+      "reporte"
+    ],
     "fuente": "sistema_aeroportuario"
   },
   {
     "img_id": "IMG_036",
-    "filename": "placeholder.jpg",
+    "filename": "IMG_036_incidente.jpg",
     "tipo_imagen": "incidente",
     "descripcion": "Imagen de objeto extraño encontrado en pista durante inspección rutinaria",
     "aeropuerto": "PTY",
     "fecha": "2024-12-08",
     "formato": "JPEG",
-    "tags": ["pista", "rampa", "emergencia", "reporte"],
+    "tags": [
+      "pista",
+      "rampa",
+      "emergencia",
+      "reporte"
+    ],
     "fuente": "sistema_aeroportuario"
   },
   {
     "img_id": "IMG_037",
-    "filename": "placeholder.jpg",
+    "filename": "IMG_037_incidente.jpg",
     "tipo_imagen": "incidente",
     "descripcion": "Foto de ventana rota en terminal por impacto de granizo durante tormenta",
     "aeropuerto": "LIM",
     "fecha": "2024-01-09",
     "formato": "JPEG",
-    "tags": ["pista", "rampa", "emergencia", "reporte"],
+    "tags": [
+      "pista",
+      "rampa",
+      "emergencia",
+      "reporte"
+    ],
     "fuente": "sistema_aeroportuario"
   },
   {
     "img_id": "IMG_038",
-    "filename": "placeholder.jpg",
+    "filename": "IMG_038_incidente.jpg",
     "tipo_imagen": "incidente",
     "descripcion": "Imagen de vehículo varado en zona de rodaje bloqueando circulación",
     "aeropuerto": "GRU",
     "fecha": "2024-02-10",
     "formato": "JPEG",
-    "tags": ["pista", "rampa", "emergencia", "reporte"],
+    "tags": [
+      "pista",
+      "rampa",
+      "emergencia",
+      "reporte"
+    ],
     "fuente": "sistema_aeroportuario"
   },
   {
     "img_id": "IMG_039",
-    "filename": "placeholder.jpg",
+    "filename": "IMG_039_incidente.jpg",
     "tipo_imagen": "incidente",
     "descripcion": "Fotografía de accidente menor de pasajero en escalera mecánica de terminal",
     "aeropuerto": "SCL",
     "fecha": "2024-03-11",
     "formato": "JPEG",
-    "tags": ["pista", "rampa", "emergencia", "reporte"],
+    "tags": [
+      "pista",
+      "rampa",
+      "emergencia",
+      "reporte"
+    ],
     "fuente": "sistema_aeroportuario"
   },
   {
     "img_id": "IMG_040",
-    "filename": "placeholder.jpg",
+    "filename": "IMG_040_incidente.jpg",
     "tipo_imagen": "incidente",
     "descripcion": "Imagen de retraso en abordaje por falla en manga telescópica de puerta",
     "aeropuerto": "MIA",
     "fecha": "2024-04-12",
     "formato": "JPEG",
-    "tags": ["pista", "rampa", "emergencia", "reporte"],
+    "tags": [
+      "pista",
+      "rampa",
+      "emergencia",
+      "reporte"
+    ],
     "fuente": "sistema_aeroportuario"
   },
   {
     "img_id": "IMG_041",
-    "filename": "placeholder.jpg",
+    "filename": "IMG_041_infraestructura.jpg",
     "tipo_imagen": "infraestructura",
     "descripcion": "Vista aérea de terminal principal con pistas de aterrizaje y hangares visibles",
     "aeropuerto": "BOG",
     "fecha": "2024-05-13",
     "formato": "JPEG",
-    "tags": ["terminal", "puerta", "pista", "instalacion"],
+    "tags": [
+      "terminal",
+      "puerta",
+      "pista",
+      "instalacion"
+    ],
     "fuente": "sistema_aeroportuario"
   },
   {
     "img_id": "IMG_042",
-    "filename": "placeholder.jpg",
+    "filename": "IMG_042_infraestructura.jpg",
     "tipo_imagen": "infraestructura",
     "descripcion": "Fotografía de sala de espera de puerta de embarque B12 con pasajeros",
     "aeropuerto": "MDE",
     "fecha": "2024-06-14",
     "formato": "JPEG",
-    "tags": ["terminal", "puerta", "pista", "instalacion"],
+    "tags": [
+      "terminal",
+      "puerta",
+      "pista",
+      "instalacion"
+    ],
     "fuente": "sistema_aeroportuario"
   },
   {
     "img_id": "IMG_043",
-    "filename": "placeholder.jpg",
+    "filename": "IMG_043_infraestructura.jpg",
     "tipo_imagen": "infraestructura",
     "descripcion": "Imagen de torre de control del aeropuerto con equipos de radar visibles",
     "aeropuerto": "CLO",
     "fecha": "2024-07-15",
     "formato": "JPEG",
-    "tags": ["terminal", "puerta", "pista", "instalacion"],
+    "tags": [
+      "terminal",
+      "puerta",
+      "pista",
+      "instalacion"
+    ],
     "fuente": "sistema_aeroportuario"
   },
   {
     "img_id": "IMG_044",
-    "filename": "placeholder.jpg",
+    "filename": "IMG_044_infraestructura.jpg",
     "tipo_imagen": "infraestructura",
     "descripcion": "Foto del apron sur con múltiples aeronaves en posición de estacionamiento",
     "aeropuerto": "CTG",
     "fecha": "2024-08-16",
     "formato": "JPEG",
-    "tags": ["terminal", "puerta", "pista", "instalacion"],
+    "tags": [
+      "terminal",
+      "puerta",
+      "pista",
+      "instalacion"
+    ],
     "fuente": "sistema_aeroportuario"
   },
   {
     "img_id": "IMG_045",
-    "filename": "placeholder.jpg",
+    "filename": "IMG_045_infraestructura.jpg",
     "tipo_imagen": "infraestructura",
     "descripcion": "Imagen de sistema de bandas transportadoras de equipaje en área de reclamos",
     "aeropuerto": "BAQ",
     "fecha": "2024-09-17",
     "formato": "JPEG",
-    "tags": ["terminal", "puerta", "pista", "instalacion"],
+    "tags": [
+      "terminal",
+      "puerta",
+      "pista",
+      "instalacion"
+    ],
     "fuente": "sistema_aeroportuario"
   },
   {
     "img_id": "IMG_046",
-    "filename": "placeholder.jpg",
+    "filename": "IMG_046_infraestructura.jpg",
     "tipo_imagen": "infraestructura",
     "descripcion": "Fotografía del centro de operaciones con pantallas de monitoreo activas",
     "aeropuerto": "PTY",
     "fecha": "2024-10-18",
     "formato": "JPEG",
-    "tags": ["terminal", "puerta", "pista", "instalacion"],
+    "tags": [
+      "terminal",
+      "puerta",
+      "pista",
+      "instalacion"
+    ],
     "fuente": "sistema_aeroportuario"
   },
   {
     "img_id": "IMG_047",
-    "filename": "placeholder.jpg",
+    "filename": "IMG_047_infraestructura.jpg",
     "tipo_imagen": "infraestructura",
     "descripcion": "Vista interior de hangar de mantenimiento con aeronave en revisión mayor",
     "aeropuerto": "LIM",
     "fecha": "2024-11-19",
     "formato": "JPEG",
-    "tags": ["terminal", "puerta", "pista", "instalacion"],
+    "tags": [
+      "terminal",
+      "puerta",
+      "pista",
+      "instalacion"
+    ],
     "fuente": "sistema_aeroportuario"
   },
   {
     "img_id": "IMG_048",
-    "filename": "placeholder.jpg",
+    "filename": "IMG_048_infraestructura.jpg",
     "tipo_imagen": "infraestructura",
     "descripcion": "Imagen del puesto de control de acceso vehicular al área restringida",
     "aeropuerto": "GRU",
     "fecha": "2024-12-20",
     "formato": "JPEG",
-    "tags": ["terminal", "puerta", "pista", "instalacion"],
+    "tags": [
+      "terminal",
+      "puerta",
+      "pista",
+      "instalacion"
+    ],
     "fuente": "sistema_aeroportuario"
   },
   {
     "img_id": "IMG_049",
-    "filename": "placeholder.jpg",
+    "filename": "IMG_049_infraestructura.jpg",
     "tipo_imagen": "infraestructura",
     "descripcion": "Fotografía de señalización de rodaje en pista con marcas de pavimento",
     "aeropuerto": "SCL",
     "fecha": "2024-01-21",
     "formato": "JPEG",
-    "tags": ["terminal", "puerta", "pista", "instalacion"],
+    "tags": [
+      "terminal",
+      "puerta",
+      "pista",
+      "instalacion"
+    ],
     "fuente": "sistema_aeroportuario"
   },
   {
     "img_id": "IMG_050",
-    "filename": "placeholder.jpg",
+    "filename": "IMG_050_infraestructura.jpg",
     "tipo_imagen": "infraestructura",
     "descripcion": "Imagen de sala VIP con pantallas de información de vuelos en tiempo real",
     "aeropuerto": "MIA",
     "fecha": "2024-02-22",
     "formato": "JPEG",
-    "tags": ["terminal", "puerta", "pista", "instalacion"],
+    "tags": [
+      "terminal",
+      "puerta",
+      "pista",
+      "instalacion"
+    ],
     "fuente": "sistema_aeroportuario"
   }
 ]

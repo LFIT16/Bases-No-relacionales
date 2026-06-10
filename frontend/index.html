@@ -24,6 +24,7 @@
   <button onclick="switchTab('buscar')">Búsqueda semántica</button>
   <button onclick="switchTab('comparar')">Comparar chunking</button>
   <button onclick="switchTab('imagenes')">Búsqueda de imágenes</button>
+  <button onclick="switchTab('img2img')">Imagen → Imagen</button>
 </nav>
 
 <div class="container">
@@ -148,6 +149,29 @@
     <div class="loader" id="img-loader"><div class="spinner"></div>Buscando imágenes...</div>
     <div id="img-result"></div>
   </div>
+
+  <!-- TAB 5: IMAGEN → IMAGEN -->
+<div class="tab" id="tab-img2img">
+  <div class="card">
+    <h2>🖼 Imagen → Imagen</h2>
+
+    <input type="file" id="img2img-file" accept="image/*" />
+
+    <div style="margin-top:1rem">
+      <button class="btn" onclick="sendImageToImage()">
+        Buscar similares
+      </button>
+    </div>
+  </div>
+
+  <div class="loader" id="img2img-loader">
+    <div class="spinner"></div>
+    Analizando imagen...
+  </div>
+
+  <div id="img2img-result"></div>
+</div>
+
 
 </div>
 
