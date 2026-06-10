@@ -267,3 +267,24 @@ def _build_extra_filters(
     if prioridad:
         f["metadatos.prioridad"] = prioridad
     return f or None
+
+# Agregar al final de rag/pipeline.py
+
+def call_llm(question: str, contexts: list[str]) -> str:
+    """
+    Función de compatibilidad para ragas_eval.py.
+    Genera respuesta usando el pipeline RAG.
+    
+    Args:
+        question: Pregunta del usuario
+        contexts: Lista de chunks (se ignora porque rag_query ya los recupera)
+    
+    Returns:
+        Respuesta generada por el LLM
+    """
+    response = rag_query(
+        question=question,
+        limit=5,
+        usuario="ragas_eval"
+    )
+    return response.get("answer", "No se pudo generar respuesta")

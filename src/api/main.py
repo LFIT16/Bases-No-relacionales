@@ -8,10 +8,13 @@ Endpoints:
   POST /search/entity         → búsqueda sobre una entidad específica
   POST /search/images         → búsqueda texto → imagen
   POST /search/multimodal     → textos + imágenes combinados
+  POST /search/image-to-image → búsqueda imagen → imagen (CLIP)
   POST /rag                   → pipeline RAG completo (Groq + LLaMA)
   POST /rag/entity            → RAG enfocado en una entidad
   POST /chunking/compare      → compara las 3 estrategias de chunking
   POST /ingesta/entidades     → dispara la ingesta de embeddings para entidades
+  POST /evaluar               → evaluación RAGAS (faithfulness, relevancy, recall)
+  GET  /evaluar/historial     → historial de evaluaciones desde MongoDB
 """
 from __future__ import annotations
 
@@ -415,3 +418,110 @@ async def search_image_to_image(file: UploadFile = File(...)):
         "total": len(resultados),
         "resultados": resultados
     }
+
+# ─────────────────────────────────────────────────────────────────────────────
+# RAGAS — Evaluación automática del pipeline RAG  (Nota Extra)
+# ─────────────────────────────────────────────────────────────────────────────
+
+class EvaluacionRequest(BaseModel):
+    dataset_completo: bool = Field(
+        True,
+        description="Si True evalúa los 20 pares del dataset oficial. "
+                    "Si False evalúa solo un par personalizado.",
+    )
+    # Campos para evaluación de un par personalizado (dataset_completo=False)
+    id_consulta:   Optional[str] = Field(None, description="ID único del par a evaluar")
+    question:      Optional[str] = Field(None, description="Pregunta del usuario")
+    ground_truth:  Optional[str] = Field(None, description="Respuesta correcta esperada")
+    answer:        Optional[str] = Field(None, description="Respuesta generada por el RAG")
+    contexts:      Optional[list[str]] = Field(None, description="Chunks recuperados")
+    tipo:          Optional[str] = Field("general")
+    prioridad:     Optional[str] = Field("media")
+    save_to_mongo: bool = Field(True, description="Guardar resultado en MongoDB")
+
+
+@app.post("/evaluar", tags=["ragas"])
+def evaluar(req: EvaluacionRequest, background_tasks: BackgroundTasks) -> dict:
+    """
+    Evaluación automática del pipeline RAG con métricas RAGAS.
+
+    **Métricas calculadas:**
+    - **Faithfulness** (0-1): ¿La respuesta es factualmente consistente con el contexto recuperado?
+    - **Answer Relevancy** (0-1): ¿La respuesta es pertinente a la pregunta original?
+    - **Context Recall** (0-1): ¿El contexto recuperado cubre la respuesta esperada (ground_truth)?
+
+    **Modos de uso:**
+    - `dataset_completo=true` → evalúa los 20 pares oficiales del dataset aeroportuario.
+    - `dataset_completo=false` → evalúa un único par personalizado (requiere question, ground_truth, answer, contexts).
+
+    Los resultados se guardan en la colección `evaluaciones` de MongoDB.
+    """
+    from evaluacion.ragas_eval import run_evaluation, evaluate_single
+    from evaluacion.dataset import EVAL_DATASET
+
+    if req.dataset_completo:
+        # Ejecutar en background para no bloquear (el dataset completo tarda ~30s)
+        result_container = {}
+
+        def _run():
+            result_container.update(
+                run_evaluation(dataset=EVAL_DATASET, save_to_mongo=req.save_to_mongo, verbose=False)
+            )
+
+        # Para el endpoint devolvemos el resultado sincrónico (20 pares son manejables)
+        resumen = run_evaluation(
+            dataset=EVAL_DATASET,
+            save_to_mongo=req.save_to_mongo,
+            verbose=False,
+        )
+        # Serializar datetimes
+        for r in resumen.get("resultados", []):
+            if hasattr(r.get("fecha"), "isoformat"):
+                r["fecha"] = r["fecha"].isoformat()
+        return {
+            "modo":                        "dataset_completo",
+            "total_evaluados":             resumen["total_evaluados"],
+            "faithfulness_promedio":        resumen["faithfulness_promedio"],
+            "answer_relevancy_promedio":    resumen["answer_relevancy_promedio"],
+            "context_recall_promedio":      resumen["context_recall_promedio"],
+            "score_global":                 resumen["score_global"],
+            "resultados_por_tipo":          resumen["resultados_por_tipo"],
+            "resultados":                   resumen["resultados"],
+            "guardado_en_mongo":            req.save_to_mongo,
+        }
+
+    else:
+        # Evaluación de un par personalizado
+        missing = [f for f in ("id_consulta", "question", "ground_truth", "answer", "contexts")
+                   if not getattr(req, f)]
+        if missing:
+            raise HTTPException(
+                status_code=422,
+                detail=f"Para evaluación individual se requieren: {missing}",
+            )
+        res = evaluate_single(
+            id_consulta   = req.id_consulta,
+            question      = req.question,
+            ground_truth  = req.ground_truth,
+            answer        = req.answer,
+            contexts      = req.contexts,
+            tipo          = req.tipo or "general",
+            prioridad     = req.prioridad or "media",
+            save_to_mongo = req.save_to_mongo,
+        )
+        if hasattr(res.get("fecha"), "isoformat"):
+            res["fecha"] = res["fecha"].isoformat()
+        return {"modo": "par_individual", **res}
+
+
+@app.get("/evaluar/historial", tags=["ragas"])
+def historial_evaluaciones(limit: int = 20) -> dict:
+    """
+    Retorna las últimas evaluaciones RAGAS guardadas en MongoDB.
+
+    Útil para comparar la evolución de las métricas entre sesiones
+    o entre diferentes estrategias de chunking.
+    """
+    from evaluacion.ragas_eval import get_evaluation_history
+    docs = get_evaluation_history(limit=limit)
+    return {"total": len(docs), "evaluaciones": docs}

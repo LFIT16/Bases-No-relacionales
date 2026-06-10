@@ -83,7 +83,7 @@ VECTOR_INDEX_IMAGE=vector_index_imagen
 > **Importante:** nunca subir el archivo `.env` a un repositorio público.
 
 # Crear entorno virtual
-python -m venv venv
+venv\Scripts\activate
 
 # Activar entorno virtual (Windows)
 venv\Scripts\activate
